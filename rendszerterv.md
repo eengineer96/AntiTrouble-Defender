@@ -1,5 +1,10 @@
 # Rendszerterv az AntiTrouble-Defender vírusirtó alkalmazáshoz
-## 1. A rendszerterv célja
+## 1. A rendszer célja
+A vírusírtó szoftver célja, hogy hatékony védelmet nyújtson a felhasználók számítógépeinek és adatrendszerének a kártékony szoftverek ellen. A szoftver fő céljai közé tartozik:
+- **Processzek lekérdezése és ellenőrzése:** A szoftver képes lesz folyamatokat lekérdezni és ellenőrizni a rendszeren, hogy azonosítsa és megelőzze a potenciálisan veszélyes tevékenységeket.
+- **Kiválasztott mappa átfésülése:** A szoftver lehetővé teszi a felhasználók számára, hogy kiválasszák a mappákat, amelyeket átvizsgálhatnak a kártékony fájlok és tevékenységek azonosítása érdekében.
+- **Frissítés egy központi adatbázisból:**  A szoftver automatikusan frissíti magát egy központi adatbázisból, hogy biztosítsa a legújabb vírusdefiníciókat és biztonsági frissítéseket a felhasználók számára.
+- **Hash alapú azonosítás:** A vírusírtó szoftver hash alapú azonosítási mechanizmust használ a fájlok integritásának és változásainak ellenőrzésére, lehetővé téve a potenciálisan káros fájlok azonosítását és kezelését.
 
 ## 2. Projektterv
 ### 2.1 Szerepkörök
