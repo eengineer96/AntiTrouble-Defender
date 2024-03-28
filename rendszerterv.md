@@ -35,5 +35,32 @@ A vírusírtó szoftver célja, hogy hatékony védelmet nyújtson a felhasznál
 | Funkcionális Specifikáció | Megírás | 1 | 36 | 30(in progress) |
 | Rendszerterv | Megírás | 1 | 36 | 12(in progress) | 
 
+### 2.4 Mérföldkövek
+- 2024.04.06 konzultációra következők átadása:
+  - Követelmény specifikáció
+  - Funkcionális specifikáció
+  - Rendszerterv
+  - Alkalmazás alapjainak bemutatása
+
+## 3. Üzleti folyamatok modellje
+
+### 3.1 Üzleti szereplők
+
+A szoftver korlátozások nélkül bármely gépre telepíthető és ezek után használatba vehető, olyan felhasználók számára akinek erre a megrendelő engedélyt ad. 
+
+###3.2 Üzleti folyamatok
+
+Az alkalmazás elindítása után a user személyre szabhatja, milyen beállításokkal kívánja használni a víruskereső programot, lehetősége nyílik egy egész háttértárnyi tartalom átvizsgálására, viszont csak megadott könyvtárak vizsgálatára is van lehetőség, a gyorsabb felderítés érdekében. A keresés pontosságát pedig, a háttérben frissülő vírusadatbázis fogja segíteni! A végeredményt az erre szolgáló vizsgálati eredmények névvel ellátott boxban találhatja meg! Továbbá lehetősége nyílik a felhasználónak a víruskeresés mellett, a rendszerben éppen futó processzek és folyamatok lekérdezésére is!
+
+- Vizsgálni kívánt fájltartomány kiválasztása: a felhasználó itt döntheti el, hogy milyen terjedelemben szeretné elvégezni számítógépe átvizsgálását.
+- Éppen futó processzek: A felhasználó ezen menüpontban láthatja, milyen folyamatok futnak a számítógépén és dönthet a további használatukról.
+- Víruskeresés indítása: Ezen funkcióval a korábban megadott beállításokkal elindul a víruskereső folyamat majd a vizsgálati eredményt a felhasználó az arra kijelölt helyen(vizsgálati eredmények box) megtalálja.   
+
+
+
+
+
+
+
 
 
