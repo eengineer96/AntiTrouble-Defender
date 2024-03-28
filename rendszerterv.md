@@ -73,7 +73,46 @@ Az alkalmazás elindítása után a user személyre szabhatja, milyen beállít�
 |   K6   |   Adatbázis  |  Saját központi adatbázis  | A vállalat által kiszűrni kívánt állományokat tartalmazza az adatbázis. Ezek némelyike más vírusirtók adatbázisaiban nem található meg. Az adatbázis legyen bővíthető.                                                                              |
 
 **Támogatott eszközök**
+
 Az alkalmazás C# programnyelven készült, ezért platformfüggő! Windows operációsrendszeren használható, telepített .NET Frameworkkel!
+
+## 5. Funkcionális terv
+
+### 5.1 Rendszerszereplők
+
+A rendszer a helyi felhasználó számítógépére települ és mellé az adatbázis is, nincs szükség internetre a program futásához! A program egy jogosultsági körrel működik!
+
+5.2 Menühierarchiák
+
+A felhasználót a program megnyitása után a főoldalra jut, ahol kiválaszthatja a víruskeresés mélységét mappaszinten, majd elindíthatja azt! A keresés végeredményét a az arra kijelölt helyen(vizsgálati eredmények box) találja!  Valamint az éppen futó processzek menüpont alatt, a folyamatokat láthatja, korlátozhatja és leállíthatja őket!
+
+## 6. Fizikai környezet
+
+**Vásárolt komponensek és külső rendszerek**
+
+Nincsenek vásárolt komponensek az alkalmazáshoz!
+
+**Hardvertopológia**
+
+Az alkalmazás 64 bites Windows operációsrendszerrel ellátott számítógépre lett fejlesztve!
+
+**Fizikai alrendszerek**
+
+Felhasználói számítógépek: 64 bites architektúrával rendelkező számítógépek, Windows operációsrendszerrel és .NET keretrendszerrel!
+
+## 7. Architekturális terv
+
+**Webszerver**
+
+Webszerver használatára nincs szükség, az alkalmazás nem kapcsolódik internethálózathoz!
+
+**Adatbázisrendszer**
+
+Az alkalmazás a saját előre elkészített adatbázisához csatlakozik a program indulásakor, amely a telepítéskor kerül fel!
+
+**Alkalmazás elérése, kezelése**
+
+Az alkalmazást Windows operációsrendszerrel ellátott számítógép használhatja, amelyre telepítve van a .NET framework keretrendszer is! A program indítása a futtatható állományra vagy a parancsikonra való duplakattintással történik!
 
 
 
