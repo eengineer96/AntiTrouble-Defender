@@ -56,6 +56,31 @@ Az alkalmazás elindítása után a user személyre szabhatja, milyen beállít�
 - Éppen futó processzek: A felhasználó ezen menüpontban láthatja, milyen folyamatok futnak a számítógépén és dönthet a további használatukról.
 - Víruskeresés indítása: Ezen funkcióval a korábban megadott beállításokkal elindul a víruskereső folyamat majd a vizsgálati eredményt a felhasználó az arra kijelölt helyen(vizsgálati eredmények box) megtalálja.   
 
+## 4. Követelmények
+
+**Funkcionális követelmények**
+| **Id** |   **Modul**  |           **Név**          |                                                                                                                      **Leírás**                                                                                                                     |
+|:------:|:------------:|:--------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|   K1   | Víruskeresés | Teljes rendszer vizsgálata | A program a teljes rendszert átvizsgálja, az adatbázisban szereplő malware-ek után kutatva. Ez egy alapos, átfogó vizsgálat, amely hosszabb időt vesz igénybe.                                                                                      |
+|   K2   | Víruskeresés |  Kijelölt mappa vizsgálata | A program csak a felhasználó által kiválasztott mappát vizsgálja át, nem a teljes rendszert. Ezáltal csökken a vizsgálat futási ideje. Akkor célszerű ezt választani, ha kisebb változtatások után csak az érintett részeket szeretnék átvizsgálni. |
+|   K3   |  Processzek  |   Processzek lekérdezése   | A program lekérdezi az aktuálisan futó processzeket, és megjeleníti a részleteiket.                                                                                                                                                                 |
+|   K4   |  Processzek  |    Processzek leállítása   | A kilistázott processzeket lehetőség van megszakítani és leállítani, ha a processz nem válaszol, vagy túl sok erőforrást használ.                                                                                                                   |
+
+**Nem funkcionális követelmények**
+| **Id** |   **Modul**  |           **Név**          |                                                                                                                      **Leírás**                                                                                                                     |
+|:------:|:------------:|:--------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|   K5   |    Felület   |           Főablak          | Az alkalmazás főablaka, itt választhatja ki a felhasználó, hogy milyen műveletet szeretne végrehajtani. A felület legyen egyszerű, letisztult, könnyen átlátható.                                                                                   |
+|   K6   |   Adatbázis  |  Saját központi adatbázis  | A vállalat által kiszűrni kívánt állományokat tartalmazza az adatbázis. Ezek némelyike más vírusirtók adatbázisaiban nem található meg. Az adatbázis legyen bővíthető.                                                                              |
+
+**Támogatott eszközök**
+Az alkalmazás C# programnyelven készült, ezért platformfüggő! Windows operációsrendszeren használható, telepített .NET Frameworkkel!
+
+
+
+
+
+
+
 
 
 
