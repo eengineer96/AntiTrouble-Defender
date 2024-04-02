@@ -114,6 +114,114 @@ Az alkalmazás a saját előre elkészített adatbázisához csatlakozik a progr
 
 Az alkalmazást Windows operációsrendszerrel ellátott számítógép használhatja, amelyre telepítve van a .NET framework keretrendszer is! A program indítása a futtatható állományra vagy a parancsikonra való duplakattintással történik!
 
+## 8. Adatbázis terv
+
+### 8.1. Vírusdefiníciók tárolása:
+
+**Tábla neve:**
+- Virus_Definitions
+
+**Mezők:**
+- VirusID: egyedi azonosító a vírusdefiníciókhoz(Primary key)
+- VirusName: a vírus neve
+- VírusType: a vírus típusa(trójai, kémprogram stb.)
+- Signature: a vírus azonosítására szolgáló hash érték vagy aláírás
+- Description: a vírus rövid leírása
+
+### 8.2. Frissítési információk tárolása:
+
+**Tábla neve:**
+- UpdateLogs
+
+**Mezők:**
+- UpdateID: egyedi azonosító a frissítési naplóhoz(Primary key)
+- UpdateDate: a frissítés időpontja
+- UpdateType: a frissítés típusa(vírusdefiníció, programfrissítés stb.)
+- UpdateDescription: a frissítés rövid leírása
+
+### 8.3. Felhasználói beállítások tárolása:
+
+**Tábla neve:**
+- UserSettings
+
+**Mezők:**
+- UserID: egyedi azonosító felhasználókhoz(Primary key)
+- ScanPath: a felhasználó által választott mappa az átvizsgáláshoz
+- ScanFrequency: átvizsgálás gyakorisága
+- UpdateFrequency: frissítés gyakorisága
+
+### 8.4. LogFájlok tárolása:
+
+**Tábla neve:**
+- ScanLogs
+
+**Mezők:**
+- LogID: egyedi azonosító logfájlokhoz(Primary key)
+- ScanDate: a vizsgálat időpontja
+- InfectedFiles: azon fájlok száma, amelyek fertőzöttek
+- CleanedFiles: azon fájlok száma, amelyeket megtisztítottak, vagy eltávolítottak
+- ScanResult: a vizsgálat eredménye(Sikeres, Fertőzött fájlokat találtunk stb.)
+
+
+## 9. Implementációs terv
+
+- Windows WPF alkalmazás - a felhasználói felület
+- Az alkalmazás az OOP szemlélet segítségével készült
+- Az alkalmazás C# nyelven íródott, ami .NET keretrendszer segítségével fut
+
+## 10. Tesztterv
+
+**(in progress)**
+
+## 11. Telepítési terv
+
+Fizikai telepítési terv: 
+
+- a víruskereső alkalmazásnak kezdetben nincs szüksége internetre való csatlakozáshoz, sem webszerverre, sem adatbázisszerverre standalone módban is tud működni!
+
+Szoftveres telepítési terv: 
+
+- az alkalmazás használatához szükség lesz egy 64 bites architektúrájú Windows operációsrendszert futtató számítógépre amelyen van .NET keretrendszer.
+
+## 12. Karbantartási terv
+
+### 12.1. Rendszeres frissítések:
+
+- Naprakészen tartjuk a vírusdefiníciókat és a szoftver verzióját
+
+### 12.2. : Teljesítmény - és stabilitás tesztek:
+
+- Rendszeresen teszteljük az alkalmazás teljesítményét és stabilitását különböző környezetekben és terhelések mellett.
+
+### 12.3. : Hibajavítás:
+
+- Gyorsan reagálunk az előforduló hibákra és problémákra, és biztosítjuk a szükséges javító frissítéseket.
+
+### 12.4. : Biztonsági pótlások:
+
+- Figyeljük az új biztonsági fenyegetéseket és sebezhetőségeket, és gyorsan kiegészítjük vele az alkalmazást.
+
+### 12.5. : Felhasználói visszajelzések:
+
+- Figyelembe vesszük a felhasználók visszajelzéseit és igényeit, és ezek alapján fejlesztjük az alkalmazást.
+
+### 12.6. : Dokumentáció karbantartása:
+
+- Frissítjük és karbantartjuk az alkalmazás dokumentációját, hogy naprakész és pontos információkat nyújtsunk a felhasználóknak és a fejlesztőknek.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
