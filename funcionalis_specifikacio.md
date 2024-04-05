@@ -19,3 +19,7 @@ Az ügyfél célja egy hatékony és megbízható vírusvédelmi rendszer kialak
  - Megfelelő támogatás és karbantartás a hibák gyors javítása érdekében
 
 Ennek a vágyálomrendszernek a bevezetése jelentős mértékben növelné ügyfelünk üzleti folyamatainak hatékonyságát és eredményességét.
+
+## 3. Jelenlegi üzleti folyamatok modellje
+
+Az aktuális üzleti folyamatok modellje alapján a felhasználóknak nem áll módjukban vírusvédelmi alkalmazást használni. Ez az hiányosság jelentős kockázatot hordoz a vállalat számára, hiszen a különböző vírusok, rosszindulatú szoftverek könnyen fertőzhetik meg a rendszereket és hálózatokat, így veszélyeztetve az üzleti folyamatok zavartalan működését és az üzleti adatok biztonságát. A vírusok és más fenyegetések elleni védelem hiánya súlyos pénzügyi veszteségeket okozhat a vállalatnak, és károsíthatja annak hírnevét is. Ezért kritikus fontosságú, hogy bevezessünk egy hatékony vírusvédelmi szoftvert a vállalat számára, amely megfelelő védelmet nyújt a számítógépek és az adatok számára a különféle fenyegetések ellen.
