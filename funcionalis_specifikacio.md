@@ -41,3 +41,5 @@ Az elvárt üzleti folyamatok modellje szerint az alkalmazás lehetőséget nyú
 | M7 | Frissítés | Vírusdefiníciók frissítése | Az alkalmazás automatikusan frissíti a vírusdefiníciókat az aktuális védelem érdekében |
 | M8 | Értesítés | Felhasználói értesítések | A rendszer értesíti a felhasználókat, ha potenciális káros fájlokat észlel a rendszerben |
 
+## 7. Képernyőtervek
+//comming soon
