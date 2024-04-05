@@ -49,3 +49,9 @@ Az elvárt üzleti folyamatok modellje szerint az alkalmazás lehetőséget nyú
 Nem regisztrált felhasználók esetében lehetőség van arra, hogy egy választott fájlt átvizsgáljanak.
 
 Regisztrált felhasználók számára elérhető több fájl vagy meghajtó átvizsgálása, valamint lehetőség van a folyamatok ellenőrzésére és leállítására is.
+
+## 9 Fogalomszótár
+
+**Folyamat**: Az aktuálisan futó programrész, ami jelen van a számítógép memóriájában és működésben van, feladatát ellátva.
+
+**Vírusdefiníciók**: Adatbázisok, melyekben tárolva vannak a vírusok és más kártékony programok azonosításához szükséges információk.
