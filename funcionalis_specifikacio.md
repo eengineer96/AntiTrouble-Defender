@@ -43,3 +43,9 @@ Az elvárt üzleti folyamatok modellje szerint az alkalmazás lehetőséget nyú
 
 ## 7. Képernyőtervek
 //comming soon
+
+## 8. Forgatókönyvek
+
+Nem regisztrált felhasználók esetében lehetőség van arra, hogy egy választott fájlt átvizsgáljanak.
+
+Regisztrált felhasználók számára elérhető több fájl vagy meghajtó átvizsgálása, valamint lehetőség van a folyamatok ellenőrzésére és leállítására is.
