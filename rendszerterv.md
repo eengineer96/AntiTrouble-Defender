@@ -17,7 +17,7 @@ A vírusírtó szoftver célja, hogy hatékony védelmet nyújtson a felhasznál
 ### 2.2 Projekt fejlesztésében résztvevők és feladataik:
 - Program megvalósítása:
   - Frontend: Póta László
-  - Backend: Póta László
+  - Backend: Póta László, Csordás Szilveszter, Máté Andrea, Kállai Viktor
 - Dokumentációk elkészítése:
   - Funkcionális specifikáció: Máté Andrea
   -  Követelmény Specifikáció: Csordás Szilveszter
