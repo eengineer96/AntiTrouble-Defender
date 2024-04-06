@@ -9,4 +9,5 @@ Az Eszterházy Károly Katolikus Egyetem, Alkalmazások fejlesztése projekt lab
 Csordás Szilveszter\
 Kállai Viktor\
 Máté Andrea\
-Póta László
+Póta László\
+Varga Balázs
