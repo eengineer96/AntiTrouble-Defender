@@ -1,0 +1,7 @@
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.csproj.AssemblyReference.cache
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\MainWindow.g.cs
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\App.g.cs
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender_MarkupCompile.cache
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender_MarkupCompile.lref
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Login.g.cs
+C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Register.g.cs
