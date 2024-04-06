@@ -55,12 +55,18 @@ Az alkalmazás minden funkcióját kizárólag regisztráció után lehet haszn�
 
 ## 8. Forgatókönyvek
 
-Nem regisztrált felhasználók esetében lehetőség van arra, hogy egy választott fájlt átvizsgáljanak.
-
 Regisztrált felhasználók számára elérhető több fájl vagy meghajtó átvizsgálása, valamint lehetőség van a folyamatok ellenőrzésére és leállítására is.
 
-## 9 Fogalomszótár
+## 9. Fogalomszótár
+
+**Interfész**: Az a felület, amellyel a felhasználó érintkezik és a szoftverben navigálat, elérheti a különböző funkciókat.
 
 **Folyamat**: Az aktuálisan futó programrész, ami jelen van a számítógép memóriájában és működésben van, feladatát ellátva.
 
+**Malware/Vírus:** A rosszindulatú számítógépes programok összefoglaló neve. Ide tartoznak: a vírus, féreg, kémprogram, zsarolóprogram, agresszív reklámprogram, és minden egyéb kártékony szoftver.
+
+**Hash:** A hashelés azt a folyamatot jelenti, amelynek során egy változó méretű bemenetből egy fix méretű kimenetet állítunk elő. Ez a hash függvénynek nevezett matematikai függvények (hash-algoritmusok) használatával történik. A hash az ezen algoritmusok által előállított, fix hosszúságú karkatersorozat.
+
 **Vírusdefiníciók**: Adatbázisok, melyekben tárolva vannak a vírusok és más kártékony programok azonosításához szükséges információk.
+
+**Karantén:** A karantén fő funkciója a talált gyanús objektumok (például kártevő, fertőzött fájlok vagy kéretlen alkalmazások) biztonságos tárolása.
