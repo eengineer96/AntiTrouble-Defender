@@ -41,8 +41,17 @@ Az elvárt üzleti folyamatok modellje szerint az alkalmazás lehetőséget nyú
 | M7 | Frissítés | Vírusdefiníciók frissítése | Az alkalmazás automatikusan frissíti a vírusdefiníciókat az aktuális védelem érdekében |
 | M8 | Értesítés | Felhasználói értesítések | A rendszer értesíti a felhasználókat, ha potenciális káros fájlokat észlel a rendszerben |
 
+## 6. Használati esetek
+
+Az alkalmazás minden funkcióját kizárólag regisztráció után lehet használni, anélkül nem áll rendelkezésre semmilyen funkció.
+
 ## 7. Képernyőtervek
-//comming soon
+
+![login](https://github.com/eengineer96/AntiTrouble-Defender/assets/43788835/298d26a7-60b5-4c2d-a808-6bab895d2023)
+
+![registration](https://github.com/eengineer96/AntiTrouble-Defender/assets/43788835/7fff6fcd-d73b-4159-b3e5-3d343731a265)
+
+![main](https://github.com/eengineer96/AntiTrouble-Defender/assets/43788835/e55ce5ed-26a2-4959-980e-9659b36dba49)
 
 ## 8. Forgatókönyvek
 
