@@ -24,5 +24,6 @@ namespace AntiTrouble_Defender
         {
             InitializeComponent();
         }
+
     }
 }
