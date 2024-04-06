@@ -171,7 +171,7 @@ Az alkalmazást Windows operációsrendszerrel ellátott számítógép használ
 
 ## 10. Tesztterv
 
-**(in progress)**
+A tesztelések célja a rendszer és a komponensei funkcionalitásának teljes vizsgálata, ellenőrzése, a rendszer által megvalósított üzleti szolgáltatások verifikálása. A tesztelést igény szerint elvégezzük különböző hardveres környezetben. A tesztelés során használt hardverek a napjainkban általánosan elterjedt hardverkonfigurációjú PC-k, laptopok. A különböző forgatókönyvek eredményét vizsgáljuk, amennyiben az elvártnak megfelelő eredményt kapjuk a teszteset sikeresnek tekinthető, ellenkező esetben a hibát rögzítjük a jegyzőkönyvben. A teszt során elkészült jegyzőkönyveket mellékeljük a megrendelő részére. Hibatalálat esetén a szoftver kódja javításra kerül.
 
 ## 11. Telepítési terv
 
