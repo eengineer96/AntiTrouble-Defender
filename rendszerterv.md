@@ -48,7 +48,7 @@ A vírusírtó szoftver célja, hogy hatékony védelmet nyújtson a felhasznál
 
 A szoftver korlátozások nélkül bármely gépre telepíthető és ezek után használatba vehető, olyan felhasználók számára akinek erre a megrendelő engedélyt ad. 
 
-###3.2 Üzleti folyamatok
+### 3.2 Üzleti folyamatok
 
 Az alkalmazás elindítása után a user személyre szabhatja, milyen beállításokkal kívánja használni a víruskereső programot, lehetősége nyílik egy egész háttértárnyi tartalom átvizsgálására, viszont csak megadott könyvtárak vizsgálatára is van lehetőség, a gyorsabb felderítés érdekében. A keresés pontosságát pedig, a háttérben frissülő vírusadatbázis fogja segíteni! A végeredményt az erre szolgáló vizsgálati eredmények névvel ellátott boxban találhatja meg! Továbbá lehetősége nyílik a felhasználónak a víruskeresés mellett, a rendszerben éppen futó processzek és folyamatok lekérdezésére is!
 
