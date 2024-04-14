@@ -156,6 +156,7 @@ Az alkalmazást Windows operációsrendszerrel ellátott számítógép használ
 - ScanLogs
 
 **Mezők:**
+- UserID: egyedi azonosító felhasználóhoz
 - LogID: egyedi azonosító logfájlokhoz(Primary key)
 - ScanDate: a vizsgálat időpontja
 - InfectedFiles: azon fájlok száma, amelyek fertőzöttek
