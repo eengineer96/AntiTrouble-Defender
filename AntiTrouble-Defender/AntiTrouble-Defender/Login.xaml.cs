@@ -23,5 +23,18 @@ namespace AntiTrouble_Defender
         {
             InitializeComponent();
         }
+
+
+        public void Button_Bejelentkezes(object sender, RoutedEventArgs e)
+        {
+            MainWindow fokepernyo = new MainWindow();
+            fokepernyo.Show();
+        }
+
+        public void Button_Regisztracio(object sender, RoutedEventArgs e)
+        {
+            Register regisztracio = new Register();
+            regisztracio.Show();
+        }
     }
 }
