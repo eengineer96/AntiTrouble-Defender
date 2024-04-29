@@ -25,8 +25,19 @@ namespace AntiTrouble_Defender
         }
 
 
+        public class Felhasznalo
+        {
+            public string Felhasznalonev { get; set; }
+            public string Jelszo { get; set; }
+        }
+
+
         public void Button_Bejelentkezes(object sender, RoutedEventArgs e)
         {
+            if (!MezokKitoltve())
+            {
+
+            }
             MainWindow fokepernyo = new MainWindow();
             fokepernyo.Show();
         }
@@ -36,5 +47,17 @@ namespace AntiTrouble_Defender
             Register regisztracio = new Register();
             regisztracio.Show();
         }
+
+        public bool MezokKitoltve()
+        {
+            if (Felhasznalonev.Text == "" || Jelszo.Password == "")
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
     }
 }
