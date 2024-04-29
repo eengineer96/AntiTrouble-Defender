@@ -36,10 +36,27 @@ namespace AntiTrouble_Defender
         {
             if (!MezokKitoltve())
             {
-
+                MessageBox.Show("Hiányzó adatok!\nA bejelentkezéshez adja meg " +
+                                "a felhasználónevét és a jelszavát!",
+                            "Bejelentkezési hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            MainWindow fokepernyo = new MainWindow();
-            fokepernyo.Show();
+            else if (!FelhasznaloLetezik())
+            {
+                MessageBox.Show("Érvénytelen adatok!\nA megadott felhasználónév " +
+                                "nem szerepel a rendszer adatbázisában!",
+                            "Bejelentkezési hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Felhasznalo felhasznalo = new Felhasznalo();
+                felhasznalo.Felhasznalonev = Felhasznalonev.Text;
+                MessageBox.Show("Sikeres bejelentkezés!\nÜdvözöljük, " + felhasznalo.Felhasznalonev + "!",
+                            "Sikeres bejelentkezés", MessageBoxButton.OK);
+                MainWindow fokepernyo = new MainWindow();
+                fokepernyo.Show();
+                this.Close();
+            }
+
         }
 
         public void Button_Regisztracio(object sender, RoutedEventArgs e)
@@ -57,7 +74,12 @@ namespace AntiTrouble_Defender
             return true;
         }
 
-
+        public bool FelhasznaloLetezik()
+        {
+            // TODO: Adatbázissal kommunikáló függvények hívása
+            // Ideiglenesen:
+            return true;
+        }
 
     }
 }
