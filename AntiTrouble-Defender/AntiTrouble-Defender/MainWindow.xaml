@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="AntiTrouble" Height="450" Width="800" ResizeMode="NoResize">
     <Grid Background="#FFD2EFF9">
-        <TextBox x:Name="Udvozles" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Üdv, User!" VerticalAlignment="Top" Width="120" Background="#FFD2EFF9" TextChanged="TextBox_TextChanged"/>
-        <ListBox x:Name="Lista" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,50,50,100" Background="#FFA3D6FD" SelectionChanged="ListBox_SelectionChanged"/>
+        <TextBox x:Name="Udvozles" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Üdv, User!" VerticalAlignment="Top" Width="120" Background="#FFD2EFF9"/>
+        <ListBox x:Name="Lista" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,50,50,100" Background="#FFA3D6FD" />
         <Button Content="Vizsgálat" HorizontalAlignment="Left" Margin="50,370,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-0.338" Height="30" Width="100" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Vizsgalat" />
         <Button Content="Megjelölés" HorizontalAlignment="Left" Margin="200,370,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-0.338" Height="30" Width="100" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Megjeloles" />
         <Button Content="Kilépés" HorizontalAlignment="Left" Margin="700,384,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-0.338" Height="30" Width="80" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Kilepes" />

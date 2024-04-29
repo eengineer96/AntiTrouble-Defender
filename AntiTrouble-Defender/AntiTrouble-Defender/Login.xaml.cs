@@ -52,7 +52,7 @@ namespace AntiTrouble_Defender
                 felhasznalo.Felhasznalonev = Felhasznalonev.Text;
                 MessageBox.Show("Sikeres bejelentkezés!\nÜdvözöljük, " + felhasznalo.Felhasznalonev + "!",
                             "Sikeres bejelentkezés", MessageBoxButton.OK);
-                MainWindow fokepernyo = new MainWindow(felhasznalo.Felhasznalonev);
+                MainWindow fokepernyo = new MainWindow(felhasznalo);
                 fokepernyo.Show();
                 this.Close();
             }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static AntiTrouble_Defender.Login;
 
 namespace AntiTrouble_Defender
 {
@@ -20,10 +21,13 @@ namespace AntiTrouble_Defender
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(string felhasznalonev)
+        Felhasznalo felhasznalo;
+
+        public MainWindow(Felhasznalo felhasznalo)
         {
             InitializeComponent();
-            Udvozles.Text = "Üdv, " + felhasznalonev + "!";
+            this.felhasznalo = felhasznalo;
+            Udvozles.Text = "Üdv, " + felhasznalo.Felhasznalonev + "!";
         }
 
 
@@ -39,7 +43,12 @@ namespace AntiTrouble_Defender
 
         private void Kilepes(object sender, RoutedEventArgs e)
         {
-            // TODO
+            if (MessageBox.Show("Biztosan ki akar lépni?",
+            "Megerősítés", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                felhasznalo = null;
+                this.Close();
+            }
         }
 
     }
