@@ -23,6 +23,23 @@ namespace AntiTrouble_Defender
         public MainWindow(string felhasznalonev)
         {
             InitializeComponent();
+            Udvozles.Text = "Üdv, " + felhasznalonev + "!";
+        }
+
+
+        private void Vizsgalat(object sender, RoutedEventArgs e)
+        {
+            // TODO
+        }
+
+        private void Megjeloles(object sender, RoutedEventArgs e)
+        {
+            // TODO
+        }
+
+        private void Kilepes(object sender, RoutedEventArgs e)
+        {
+            // TODO
         }
 
     }
