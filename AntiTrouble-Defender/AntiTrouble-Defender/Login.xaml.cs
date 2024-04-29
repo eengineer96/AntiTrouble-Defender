@@ -32,7 +32,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        public void Button_Bejelentkezes(object sender, RoutedEventArgs e)
+        public void Bejelentkezes(object sender, RoutedEventArgs e)
         {
             if (!MezokKitoltve())
             {
@@ -42,7 +42,7 @@ namespace AntiTrouble_Defender
             }
             else if (!FelhasznaloLetezik())
             {
-                MessageBox.Show("Érvénytelen adatok!\nA megadott felhasználónév " +
+                MessageBox.Show("Érvénytelen adatok!\nA megadott felhasználó " +
                                 "nem szerepel a rendszer adatbázisában!",
                             "Bejelentkezési hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -52,14 +52,14 @@ namespace AntiTrouble_Defender
                 felhasznalo.Felhasznalonev = Felhasznalonev.Text;
                 MessageBox.Show("Sikeres bejelentkezés!\nÜdvözöljük, " + felhasznalo.Felhasznalonev + "!",
                             "Sikeres bejelentkezés", MessageBoxButton.OK);
-                MainWindow fokepernyo = new MainWindow();
+                MainWindow fokepernyo = new MainWindow(felhasznalo.Felhasznalonev);
                 fokepernyo.Show();
                 this.Close();
             }
 
         }
 
-        public void Button_Regisztracio(object sender, RoutedEventArgs e)
+        public void RegisztracioAblak(object sender, RoutedEventArgs e)
         {
             Register regisztracio = new Register();
             regisztracio.Show();
