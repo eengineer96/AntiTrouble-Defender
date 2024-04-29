@@ -27,19 +27,17 @@ namespace AntiTrouble_Defender
 
         public void Button_Regisztracio(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Sikeres regisztráció!", "Sikeres regisztráció", MessageBoxButton.OK);
-            this.Close();
+            // TODO
         }
 
         public void Button_Vissza(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            // TODO
         }
 
         public void JelszoValtozas(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Sikeres jelszóváltoztatás!", "Sikeres jelszóváltoztatás", MessageBoxButton.OK);
-            this.Close();
+            // TODO
         }
     }
 }

@@ -25,16 +25,61 @@ namespace AntiTrouble_Defender
         }
 
 
-        public void Button_Bejelentkezes(object sender, RoutedEventArgs e)
+        public class Felhasznalo
         {
-            MainWindow fokepernyo = new MainWindow();
-            fokepernyo.Show();
+            public string Felhasznalonev { get; set; }
+            public string Jelszo { get; set; }
         }
 
-        public void Button_Regisztracio(object sender, RoutedEventArgs e)
+
+        public void Bejelentkezes(object sender, RoutedEventArgs e)
+        {
+            if (!MezokKitoltve())
+            {
+                MessageBox.Show("Hiányzó adatok!\nA bejelentkezéshez adja meg " +
+                                "a felhasználónevét és a jelszavát!",
+                            "Bejelentkezési hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (!FelhasznaloLetezik())
+            {
+                MessageBox.Show("Érvénytelen adatok!\nA megadott felhasználó " +
+                                "nem szerepel a rendszer adatbázisában!",
+                            "Bejelentkezési hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Felhasznalo felhasznalo = new Felhasznalo();
+                felhasznalo.Felhasznalonev = Felhasznalonev.Text;
+                MessageBox.Show("Sikeres bejelentkezés!\nÜdvözöljük, " + felhasznalo.Felhasznalonev + "!",
+                            "Sikeres bejelentkezés", MessageBoxButton.OK);
+                MainWindow fokepernyo = new MainWindow(felhasznalo.Felhasznalonev);
+                fokepernyo.Show();
+                this.Close();
+            }
+
+        }
+
+        public void RegisztracioAblak(object sender, RoutedEventArgs e)
         {
             Register regisztracio = new Register();
             regisztracio.Show();
         }
+
+        public bool MezokKitoltve()
+        {
+            if (Felhasznalonev.Text == "" || Jelszo.Password == "")
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool FelhasznaloLetezik()
+        {
+            // TODO: Adatbázissal kommunikáló függvények hívása
+            // Ideiglenesen:
+            return true;
+        }
+
     }
 }

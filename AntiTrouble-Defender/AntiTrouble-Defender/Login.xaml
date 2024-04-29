@@ -12,7 +12,7 @@
         <Label Content="Jelentkezz be a folytatáshoz!" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label Content="Felhasználónév:" HorizontalAlignment="Left" Margin="84,50,0,0" VerticalAlignment="Top"/>
         <Label Content="Jelszó:" HorizontalAlignment="Left" Margin="84,80,0,0" VerticalAlignment="Top"/>
-        <Button Content="Bejelentkezés" VerticalAlignment="Top" Margin="240,133,60,0" Width="100" Click="Button_Bejelentkezes" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White"/>
-        <Button Content="Regisztráció" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="60,133,0,0" Click="Button_Regisztracio" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White"/>
+        <Button Content="Bejelentkezés" VerticalAlignment="Top" Margin="240,133,60,0" Width="100" Click="Bejelentkezes" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White"/>
+        <Button Content="Regisztráció" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="60,133,0,0" Click="RegisztracioAblak" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White"/>
     </Grid>
 </Window>
