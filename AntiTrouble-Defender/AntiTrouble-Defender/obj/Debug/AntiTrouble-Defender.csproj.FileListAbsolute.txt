@@ -5,3 +5,22 @@ C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defende
 C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender_MarkupCompile.lref
 C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Login.g.cs
 C:\Users\lszlp\Source\Repos\eengineer96\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Register.g.cs
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.csproj.AssemblyReference.cache
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Login.g.cs
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\MainWindow.g.cs
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Register.g.cs
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\App.g.cs
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender_MarkupCompile.cache
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender_MarkupCompile.lref
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.exe
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.pdb
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\bin\Debug\AntiTrouble-Defender.exe.config
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\bin\Debug\AntiTrouble-Defender.exe
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\bin\Debug\AntiTrouble-Defender.pdb
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Login.baml
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\MainWindow.baml
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\Register.baml
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.g.resources
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble_Defender.Properties.Resources.resources
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.csproj.GenerateResource.cache
+D:\OneDrive\Dokumentumok\Egyetem\IV. félév\Alkalmazások fejlesztése projekt labor II. gyakorlat\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender\obj\Debug\AntiTrouble-Defender.csproj.CoreCompileInputs.cache
