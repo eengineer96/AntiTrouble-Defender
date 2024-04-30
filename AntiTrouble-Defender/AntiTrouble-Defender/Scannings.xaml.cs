@@ -23,5 +23,9 @@ namespace AntiTrouble_Defender
         {
             InitializeComponent();
         }
+        private void Button_Vissza(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
