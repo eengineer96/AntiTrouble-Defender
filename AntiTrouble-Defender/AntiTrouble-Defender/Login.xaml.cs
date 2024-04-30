@@ -32,7 +32,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        public void Bejelentkezes(object sender, RoutedEventArgs e)
+        private void Bejelentkezes(object sender, RoutedEventArgs e)
         {
             if (!MezokKitoltve())
             {
@@ -52,20 +52,20 @@ namespace AntiTrouble_Defender
                 felhasznalo.Felhasznalonev = Felhasznalonev.Text;
                 MessageBox.Show("Sikeres bejelentkezés!\nÜdvözöljük, " + felhasznalo.Felhasznalonev + "!",
                             "Sikeres bejelentkezés", MessageBoxButton.OK);
-                MainWindow fokepernyo = new MainWindow(felhasznalo.Felhasznalonev);
+                MainWindow fokepernyo = new MainWindow(felhasznalo);
                 fokepernyo.Show();
                 this.Close();
             }
 
         }
 
-        public void RegisztracioAblak(object sender, RoutedEventArgs e)
+        private void RegisztracioAblak(object sender, RoutedEventArgs e)
         {
             Register regisztracio = new Register();
             regisztracio.Show();
         }
 
-        public bool MezokKitoltve()
+        private bool MezokKitoltve()
         {
             if (Felhasznalonev.Text == "" || Jelszo.Password == "")
             {
@@ -74,7 +74,7 @@ namespace AntiTrouble_Defender
             return true;
         }
 
-        public bool FelhasznaloLetezik()
+        private bool FelhasznaloLetezik()
         {
             // TODO: Adatbázissal kommunikáló függvények hívása
             // Ideiglenesen:
