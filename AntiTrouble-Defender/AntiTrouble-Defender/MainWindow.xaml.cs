@@ -25,5 +25,24 @@ namespace AntiTrouble_Defender
             InitializeComponent();
         }
 
+        private void Button_Vizsgalat(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Megjeloles(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Kilepes(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Elozmenyek(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

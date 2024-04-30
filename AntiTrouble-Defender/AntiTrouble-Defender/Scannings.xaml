@@ -1,0 +1,14 @@
+﻿<Window x:Class="AntiTrouble_Defender.Scannings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AntiTrouble_Defender"
+        mc:Ignorable="d"
+        Title="Scannings" Height="600" Width="500" ResizeMode="NoResize">
+    <Grid Background="#FFD2EFF9">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,50,50,100" Background="#FFA3D6FD"/>
+        <Button Content="Vissza" HorizontalAlignment="Left" Margin="380,530,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.648,-0.338" Height="30" Width="80" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Button_Vissza" />
+        <Label Content="Korábbi vizsgálatok:" HorizontalAlignment="Left" Margin="50,21,0,0" FontSize="14" FontWeight="Bold" Foreground="#FF01A4EA" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
