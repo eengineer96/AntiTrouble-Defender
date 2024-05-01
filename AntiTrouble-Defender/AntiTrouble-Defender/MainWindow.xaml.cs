@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Security.Cryptography.MD5;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using static AntiTrouble_Defender.Login;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace AntiTrouble_Defender
 {
@@ -33,36 +35,56 @@ namespace AntiTrouble_Defender
             Udvozles.Text = "Üdv, " + felhasznalo.Felhasznalonev + "!";
         }
 
+
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
-            // TODO
-            MappaMegnyitas();
+            string mappa = MappaMegnyitas();
+            Vizsgal(mappa);
         }
 
-        private void MappaMegnyitas()
+
+        private string MappaMegnyitas()
         {
             using (var ablak = new System.Windows.Forms.FolderBrowserDialog())
             {
                 System.Windows.Forms.DialogResult eredmeny = ablak.ShowDialog();
                 if (eredmeny.ToString() == "OK")
                 {
-                    Lista.Items.Add(eredmeny.ToString());
+                    Lista.Items.Clear();
+                    string mappa = ablak.SelectedPath;
+                    Lista.Items.Add(mappa);
+                    return mappa;
                 }
+                return null;
             }
-
-
         }
 
 
-        private void Vizsgalat()
+        private void Vizsgal(string mappa)
         {
-            DirectoryInfo dinfo = new DirectoryInfo("C:/");
-            FileInfo[] fajlok = dinfo.GetFiles();
+            DirectoryInfo dinfo = new DirectoryInfo(mappa);
+            FileInfo[] fajlok = dinfo.GetFiles("*", SearchOption.AllDirectories);
             foreach (FileInfo fajl in fajlok)
             {
                 Lista.Items.Add(fajl.Name);
-                System.Threading.Thread.Sleep(2000);
+                string utvonal = mappa + "/" + fajl.Name;
+                Lista.Items.Add(HashKodGeneralas(utvonal));
+                System.Threading.Thread.Sleep(1000);
             }
+        }
+
+
+        private string HashKodGeneralas(string utvonal)
+        {
+            MD5 md5 = MD5.Create();
+            FileStream stream = File.OpenRead(utvonal);
+            byte[] hash = md5.ComputeHash(stream);
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+
+
+        private void KarantenbaHelyezes()
+        {
 
         }
 
