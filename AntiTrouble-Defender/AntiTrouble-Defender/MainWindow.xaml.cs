@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using static AntiTrouble_Defender.Login;
+using System.IO;
 
 namespace AntiTrouble_Defender
 {
@@ -40,11 +41,28 @@ namespace AntiTrouble_Defender
 
         private void MappaMegnyitas()
         {
-            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            using (var ablak = new System.Windows.Forms.FolderBrowserDialog())
             {
-                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                System.Windows.Forms.DialogResult eredmeny = ablak.ShowDialog();
+                if (eredmeny.ToString() == "OK")
+                {
+                    Lista.Items.Add(eredmeny.ToString());
+                }
             }
 
+
+        }
+
+
+        private void Vizsgalat()
+        {
+            DirectoryInfo dinfo = new DirectoryInfo("C:/");
+            FileInfo[] fajlok = dinfo.GetFiles();
+            foreach (FileInfo fajl in fajlok)
+            {
+                Lista.Items.Add(fajl.Name);
+                System.Threading.Thread.Sleep(2000);
+            }
 
         }
 
