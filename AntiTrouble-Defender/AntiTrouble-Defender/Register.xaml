@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:AntiTrouble_Defender"
         mc:Ignorable="d"
     Title="Regisztráció" Height="400" Width="400" ResizeMode="NoResize">
-    <Grid Height="450" Width="400" Background="#FFD2EFF9">
-        <Button Content="Regisztráció" HorizontalAlignment="Left" Margin="270,283,0,0" VerticalAlignment="Top" Click="Button_Regisztracio"  FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White"/>
-        <Button Content="Vissza" HorizontalAlignment="Left" Margin="46,283,0,0" VerticalAlignment="Top" Click="Button_Vissza" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White"/>
+    <Grid Width="400" Background="#FFD2EFF9" Margin="0,0,0,0">
+        <Button Content="Regisztráció" HorizontalAlignment="Left" Margin="270,283,0,0" VerticalAlignment="Top" Click="Button_Regisztracio"  FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Width="85" Height="25"/>
+        <Button Content="Vissza" HorizontalAlignment="Left" Margin="46,283,0,0" VerticalAlignment="Top" Click="Button_Vissza" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Width="85" Height="25"/>
         <TextBox x:Name="Felhasznalonev" HorizontalAlignment="Left" Margin="192,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="Jelszo" PasswordChanged ="JelszoValtozas" HorizontalAlignment="Left" Margin="192,136,0,0" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="JelszoUjra" PasswordChanged ="JelszoValtozas" HorizontalAlignment="Left" Margin="192,203,0,0" VerticalAlignment="Top" Width="120"/>
