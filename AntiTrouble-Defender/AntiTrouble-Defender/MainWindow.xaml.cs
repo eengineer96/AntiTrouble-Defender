@@ -32,7 +32,6 @@ namespace AntiTrouble_Defender
             Udvozles.Text = "Üdv, " + felhasznalo.Felhasznalonev + "!";
         }
 
-
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
             // TODO
