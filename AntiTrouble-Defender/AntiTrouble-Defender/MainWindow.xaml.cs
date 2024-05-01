@@ -98,6 +98,9 @@ namespace AntiTrouble_Defender
                 {
                     File.Delete(celhely);
                 }
+                /*
+                 * Itt mindig kitvételt kapok
+                 */
                 File.Move(fajl.FullName, celhely);
             }
             catch (IOException ex)
@@ -110,7 +113,16 @@ namespace AntiTrouble_Defender
 
         private void Megjeloles(object sender, RoutedEventArgs e)
         {
-            // TODO
+            System.Windows.Forms.OpenFileDialog ablak = new System.Windows.Forms.OpenFileDialog();
+            DialogResult eredmeny = ablak.ShowDialog();
+            if (eredmeny.ToString() == "OK")
+            {
+                Lista.Items.Clear();
+                FileInfo fajl = new FileInfo(ablak.FileName);
+                string karantenUtvonal = fajl + "_quarantine";
+                Lista.Items.Add(fajl.Name);
+                KarantenbaHelyezes(fajl, karantenUtvonal);
+            }
         }
 
 
