@@ -40,10 +40,9 @@ namespace AntiTrouble_Defender
 
         private void MappaMegnyitas()
         {
-
-            using (var dialog3 = new System.Windows.Forms.FolderBrowserDialog())
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
             {
-                System.Windows.Forms.DialogResult result3 = dialog3.ShowDialog();
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
             }
 
 
@@ -56,6 +55,14 @@ namespace AntiTrouble_Defender
             // TODO
         }
 
+
+
+        private void Elozmenyek(object sender, RoutedEventArgs e)
+        {
+            Scannings elozmenyek = new Scannings();
+            elozmenyek.Show();
+        }
+
         private void Kilepes(object sender, RoutedEventArgs e)
         {
             if (System.Windows.MessageBox.Show("Biztosan ki akar lépni?",
@@ -66,24 +73,6 @@ namespace AntiTrouble_Defender
             }
         }
 
-        private void Button_Vizsgalat(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void Button_Megjeloles(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Kilepes(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Elozmenyek(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

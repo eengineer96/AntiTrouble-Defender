@@ -12,6 +12,6 @@
         <Button Content="Vizsgálat" HorizontalAlignment="Left" Margin="50,0,0,45" RenderTransformOrigin="-0.648,-0.338" Width="100" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Vizsgalat" Height="30" VerticalAlignment="Bottom" />
         <Button Content="Megjelölés" HorizontalAlignment="Left" Margin="200,0,0,45" RenderTransformOrigin="-0.648,-0.338" Width="100" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Megjeloles" Height="30" VerticalAlignment="Bottom" />
         <Button Content="Kilépés" Margin="0,0,50,30" RenderTransformOrigin="-0.648,-0.338" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Kilepes" HorizontalAlignment="Right" Width="80" Height="30" VerticalAlignment="Bottom" />
-        <Button Content="Előzmények" HorizontalAlignment="Left" Margin="350,0,0,45" RenderTransformOrigin="-0.648,-0.338" Width="100" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Button_Elozmenyek" Height="30" VerticalAlignment="Bottom" />
+        <Button Content="Előzmények" HorizontalAlignment="Left" Margin="350,0,0,45" RenderTransformOrigin="-0.648,-0.338" Width="100" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Elozmenyek" Height="30" VerticalAlignment="Bottom" />
     </Grid>
 </Window>
