@@ -65,7 +65,7 @@ namespace AntiTrouble_Defender
             {
                 Lista.Items.Add(fajl.Name);
                 string hash = HashKodGeneralas(fajl.FullName);
-                // TODO: Adatbázissal kommunikáló függvények hívása
+                // TODO: Adatbázisból a vírusok hash kódjának lekérdezése
                 // Ideiglenesen:
                 if (fajl.Name.Contains(".txt"))
                 {
@@ -99,7 +99,10 @@ namespace AntiTrouble_Defender
                     File.Delete(celhely);
                 }
                 /*
-                 * Itt mindig kitvételt kapok
+                 * Itt mindig kivételt kapok:
+                 * "A folyamat nem éri el a fájlt, mert már másik folyamat használja."
+                 * A HashKodGeneralas miatt lehet probléma
+                 * 
                  */
                 File.Move(fajl.FullName, celhely);
             }
@@ -121,7 +124,9 @@ namespace AntiTrouble_Defender
                 FileInfo fajl = new FileInfo(ablak.FileName);
                 string karantenUtvonal = fajl + "_quarantine";
                 Lista.Items.Add(fajl.Name);
+                string hash = HashKodGeneralas(fajl.FullName);
                 KarantenbaHelyezes(fajl, karantenUtvonal);
+                // TODO: Adatbázisba a megjelölt fájl hash kódjának felvétele
             }
         }
 
