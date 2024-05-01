@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using static System.Security.Cryptography.MD5;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
 using static AntiTrouble_Defender.Login;
 using System.IO;
@@ -45,30 +43,34 @@ namespace AntiTrouble_Defender
 
         private string MappaMegnyitas()
         {
-            using (var ablak = new System.Windows.Forms.FolderBrowserDialog())
+            FolderBrowserDialog ablak = new FolderBrowserDialog();
+            DialogResult eredmeny = ablak.ShowDialog();
+            if (eredmeny.ToString() == "OK")
             {
-                System.Windows.Forms.DialogResult eredmeny = ablak.ShowDialog();
-                if (eredmeny.ToString() == "OK")
-                {
-                    Lista.Items.Clear();
-                    string mappa = ablak.SelectedPath;
-                    Lista.Items.Add(mappa);
-                    return mappa;
-                }
-                return null;
+                Lista.Items.Clear();
+                string mappa = ablak.SelectedPath;
+                Lista.Items.Add(mappa);
+                return mappa;
             }
+            return null;
         }
 
 
         private void Vizsgal(string mappa)
         {
             DirectoryInfo dinfo = new DirectoryInfo(mappa);
+            string karantenUtvonal = mappa + "_quarantine";
             FileInfo[] fajlok = dinfo.GetFiles("*", SearchOption.AllDirectories);
             foreach (FileInfo fajl in fajlok)
             {
                 Lista.Items.Add(fajl.Name);
-                string utvonal = mappa + "/" + fajl.Name;
-                Lista.Items.Add(HashKodGeneralas(utvonal));
+                string hash = HashKodGeneralas(fajl.FullName);
+                // TODO: Adatbázissal kommunikáló függvények hívása
+                // Ideiglenesen:
+                if (fajl.Name.Contains(".txt"))
+                {
+                    KarantenbaHelyezes(fajl, karantenUtvonal);
+                }
                 System.Threading.Thread.Sleep(1000);
             }
         }
@@ -83,9 +85,25 @@ namespace AntiTrouble_Defender
         }
 
 
-        private void KarantenbaHelyezes()
+        private void KarantenbaHelyezes(FileInfo fajl, string karantenUtvonal)
         {
-
+            if (!Directory.Exists(karantenUtvonal))
+            {
+                Directory.CreateDirectory(karantenUtvonal);
+            }
+            string celhely = Path.Combine(karantenUtvonal, fajl.Name);
+            try
+            {
+                if (File.Exists(celhely))
+                {
+                    File.Delete(celhely);
+                }
+                File.Move(fajl.FullName, celhely);
+            }
+            catch (IOException ex)
+            {
+                Lista.Items.Add("Hiba történt: " + ex.Message);
+            }
         }
 
 
