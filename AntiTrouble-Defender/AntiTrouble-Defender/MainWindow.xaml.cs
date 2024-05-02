@@ -37,7 +37,24 @@ namespace AntiTrouble_Defender
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
             string mappa = MappaMegnyitas();
-            Vizsgal(mappa);
+            if (mappa != "")
+            {
+                DirectoryInfo dinfo = new DirectoryInfo(mappa);
+                string karantenUtvonal = mappa + "_quarantine";
+                FileInfo[] fajlok = dinfo.GetFiles("*", SearchOption.AllDirectories);
+                foreach (FileInfo fajl in fajlok)
+                {
+                    Lista.Items.Add(fajl.Name);
+                    string hash = HashKodGeneralas(fajl.FullName);
+                    // TODO: Adatbázisból a vírusok hash kódjának lekérdezése
+                    // Ideiglenesen:
+                    if (fajl.Name.Contains(".txt"))
+                    {
+                        KarantenbaHelyezes(fajl, karantenUtvonal);
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }         
         }
 
 
@@ -52,27 +69,7 @@ namespace AntiTrouble_Defender
                 Lista.Items.Add(mappa);
                 return mappa;
             }
-            return null;
-        }
-
-
-        private void Vizsgal(string mappa)
-        {
-            DirectoryInfo dinfo = new DirectoryInfo(mappa);
-            string karantenUtvonal = mappa + "_quarantine";
-            FileInfo[] fajlok = dinfo.GetFiles("*", SearchOption.AllDirectories);
-            foreach (FileInfo fajl in fajlok)
-            {
-                Lista.Items.Add(fajl.Name);
-                string hash = HashKodGeneralas(fajl.FullName);
-                // TODO: Adatbázisból a vírusok hash kódjának lekérdezése
-                // Ideiglenesen:
-                if (fajl.Name.Contains(".txt"))
-                {
-                    KarantenbaHelyezes(fajl, karantenUtvonal);
-                }
-                System.Threading.Thread.Sleep(1000);
-            }
+            return "";
         }
 
 
@@ -81,6 +78,7 @@ namespace AntiTrouble_Defender
             MD5 md5 = MD5.Create();
             FileStream stream = File.OpenRead(utvonal);
             byte[] hash = md5.ComputeHash(stream);
+            stream.Close();
             return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
         }
 
@@ -98,12 +96,6 @@ namespace AntiTrouble_Defender
                 {
                     File.Delete(celhely);
                 }
-                /*
-                 * Itt mindig kivételt kapok:
-                 * "A folyamat nem éri el a fájlt, mert már másik folyamat használja."
-                 * A HashKodGeneralas miatt lehet probléma
-                 * 
-                 */
                 File.Move(fajl.FullName, celhely);
             }
             catch (IOException ex)
