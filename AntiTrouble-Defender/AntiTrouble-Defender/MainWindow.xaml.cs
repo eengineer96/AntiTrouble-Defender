@@ -12,9 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
 using static AntiTrouble_Defender.Login;
+using System.IO;
+using System.Security.Cryptography;
 
 namespace AntiTrouble_Defender
 {
@@ -32,28 +33,101 @@ namespace AntiTrouble_Defender
             Udvozles.Text = "Üdv, " + felhasznalo.Felhasznalonev + "!";
         }
 
+
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
-            // TODO
-            MappaMegnyitas();
+            string mappa = MappaMegnyitas();
+            if (mappa != "")
+            {
+                DirectoryInfo dinfo = new DirectoryInfo(mappa);
+                string karantenUtvonal = mappa + "_quarantine";
+                FileInfo[] fajlok = dinfo.GetFiles("*", SearchOption.AllDirectories);
+                foreach (FileInfo fajl in fajlok)
+                {
+                    Lista.Items.Add(fajl.Name);
+                    string hash = HashKodGeneralas(fajl.FullName);
+                    // TODO: Adatbázisból a vírusok hash kódjának lekérdezése
+                    // Ideiglenesen:
+                    if (fajl.Name.Contains(".txt"))
+                    {
+                        KarantenbaHelyezes(fajl, karantenUtvonal);
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }         
         }
 
-        private void MappaMegnyitas()
+
+        private string MappaMegnyitas()
         {
-
-            using (var dialog3 = new System.Windows.Forms.FolderBrowserDialog())
+            FolderBrowserDialog ablak = new FolderBrowserDialog();
+            DialogResult eredmeny = ablak.ShowDialog();
+            if (eredmeny.ToString() == "OK")
             {
-                System.Windows.Forms.DialogResult result3 = dialog3.ShowDialog();
+                Lista.Items.Clear();
+                string mappa = ablak.SelectedPath;
+                Lista.Items.Add(mappa);
+                return mappa;
             }
+            return "";
+        }
 
 
+        private string HashKodGeneralas(string utvonal)
+        {
+            MD5 md5 = MD5.Create();
+            FileStream stream = File.OpenRead(utvonal);
+            byte[] hash = md5.ComputeHash(stream);
+            stream.Close();
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+
+
+        private void KarantenbaHelyezes(FileInfo fajl, string karantenUtvonal)
+        {
+            if (!Directory.Exists(karantenUtvonal))
+            {
+                Directory.CreateDirectory(karantenUtvonal);
+            }
+            string celhely = Path.Combine(karantenUtvonal, fajl.Name);
+            try
+            {
+                if (File.Exists(celhely))
+                {
+                    File.Delete(celhely);
+                }
+                File.Move(fajl.FullName, celhely);
+            }
+            catch (IOException ex)
+            {
+                Lista.Items.Add("Hiba történt: " + ex.Message);
+            }
         }
 
 
 
         private void Megjeloles(object sender, RoutedEventArgs e)
         {
-            // TODO
+            System.Windows.Forms.OpenFileDialog ablak = new System.Windows.Forms.OpenFileDialog();
+            DialogResult eredmeny = ablak.ShowDialog();
+            if (eredmeny.ToString() == "OK")
+            {
+                Lista.Items.Clear();
+                FileInfo fajl = new FileInfo(ablak.FileName);
+                string karantenUtvonal = fajl + "_quarantine";
+                Lista.Items.Add(fajl.Name);
+                string hash = HashKodGeneralas(fajl.FullName);
+                KarantenbaHelyezes(fajl, karantenUtvonal);
+                // TODO: Adatbázisba a megjelölt fájl hash kódjának felvétele
+            }
+        }
+
+
+
+        private void Elozmenyek(object sender, RoutedEventArgs e)
+        {
+            Scannings elozmenyek = new Scannings();
+            elozmenyek.Show();
         }
 
         private void Kilepes(object sender, RoutedEventArgs e)
@@ -66,24 +140,6 @@ namespace AntiTrouble_Defender
             }
         }
 
-        private void Button_Vizsgalat(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void Button_Megjeloles(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Kilepes(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Elozmenyek(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
