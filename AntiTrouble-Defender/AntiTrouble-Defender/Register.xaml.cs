@@ -50,7 +50,9 @@ namespace AntiTrouble_Defender
 
         public void Button_Vissza(object sender, RoutedEventArgs e)
         {
-            // TODO
+            Login newWindow = new Login();
+            newWindow.Show();
+            Close();
         }
 
         public void JelszoValtozas(object sender, RoutedEventArgs e)
