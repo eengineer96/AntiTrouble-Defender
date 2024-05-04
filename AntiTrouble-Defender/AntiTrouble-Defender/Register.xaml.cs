@@ -23,6 +23,7 @@ namespace AntiTrouble_Defender
     {
         public Register()
         {
+            Egyeznek.Visibility= Visibility.Hidden;
             InitializeComponent();
         }
 
@@ -37,14 +38,21 @@ namespace AntiTrouble_Defender
             string userName = Felhasznalonev.Text;
             string password = Jelszo.Password;
 
-            bool success = await RegisterUser(userName, password);
-
-            if (success)
+            if (Jelszo.Password != JelszoUjra.Password)
             {
-                MessageBox.Show("User registered successfully!");
-                Felhasznalonev.Clear();
-                Jelszo.Clear();
-                JelszoUjra.Clear();
+                Egyeznek.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                bool success = await RegisterUser(userName, password);
+
+                if (success)
+                {
+                    MessageBox.Show("User registered successfully!");
+                    Felhasznalonev.Clear();
+                    Jelszo.Clear();
+                    JelszoUjra.Clear();
+                }
             }
         }
 
@@ -57,7 +65,14 @@ namespace AntiTrouble_Defender
 
         public void JelszoValtozas(object sender, RoutedEventArgs e)
         {
-            // TODO
+            if (Jelszo.Password != JelszoUjra.Password)
+            {
+                Egyeznek.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Egyeznek.Visibility = Visibility.Hidden;
+            }
         }
         public async Task<bool> RegisterUser(string userName, string password)
         {
