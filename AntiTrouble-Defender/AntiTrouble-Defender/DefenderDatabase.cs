@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.IO;
 using System.Data.SQLite;
+using System.Security.Cryptography;
 
 namespace AntiTrouble_Defender
 {
@@ -13,6 +14,72 @@ namespace AntiTrouble_Defender
     {
         private static readonly string connectionString = "Server=127.0.0.1;Database=Defender; User ID=root;Password=;";
 
+        //Bejelentkezes
+        public bool IsLogin(string username, string password)
+        {
+            
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string loginQuery = "SELECT COUNT(*) FROM UserSettings WHERE Username = @Name AND Password = @Pass";
+                    using (SQLiteCommand cmd = new SQLiteCommand(loginQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", username);
+                        cmd.Parameters.AddWithValue("@Pass", password);
+
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        return count > 0;
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Fail: " + e.Message);
+                    return false;
+                }
+                finally 
+                { 
+                    connection.Close(); 
+                }
+            }
+        }
+
+        public bool Registration(int id, string Username, string Password)
+        {
+            bool ok = true;
+            using(SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string registrationQuery = " INSERT INTO `UserSettings` (`UserID`, `Username`, `Password`) VALUES (NULL, @Name, @Pass)";
+                    using(SQLiteCommand cmd = new SQLiteCommand(registrationQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id );
+                        cmd.Parameters.AddWithValue("@Name", Username);
+                        cmd.Parameters.AddWithValue("@Pass", Password);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                    ok = false;
+                }
+                finally 
+                { 
+                    CloseConnection(connection); 
+                }
+                return ok;
+            }
+        }
+        //Kommunikacio zaras
         private void CloseConnection(SQLiteConnection connection)
         {
             if(connection.State == ConnectionState.Open)
