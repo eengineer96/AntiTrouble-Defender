@@ -24,8 +24,8 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string loginQuery = "SELECT COUNT(*) FROM UserSettings WHERE Username = @Name AND Password = @Pass";
-                    using (SQLiteCommand cmd = new SQLiteCommand(loginQuery, connection))
+                    string isLoginQuery = "SELECT COUNT(*) FROM UserSettings WHERE Username = @Name AND Password = @Pass";
+                    using (SQLiteCommand cmd = new SQLiteCommand(isLoginQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@Name", username);
                         cmd.Parameters.AddWithValue("@Pass", password);
@@ -91,16 +91,46 @@ namespace AntiTrouble_Defender
                     connection.Open();
                     string isVirusQuery = "SELECT CASE WHEN COUNT(*) > 0 THEN 'Vírus' ELSE 'Nem vírus' END " +
                                           "FROM Virus_Definitions WHERE Signature = @hashKod;";
+                    
                     using(SQLiteCommand cmd = new SQLiteCommand(isVirusQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@hashKod", hashKod);
-
                         cmd.ExecuteNonQuery();
                     }
 
                 }
                 catch (Exception e) 
                 {
+                    Console.WriteLine(e.Message);
+                    ok = false;
+                }
+                finally
+                {
+                    CloseConnection(connection);
+                }
+                return ok;
+            }
+        }
+
+        public bool InsertHashKod(string hashKod)
+        {
+            bool ok = true;
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString)) 
+            {
+                try
+                {
+                    connection.Open();
+                    string insertHashQuery = "INSERT INTO Virus_Definitions (Signature) VALUES (@hashKod)";
+
+                    using(SQLiteCommand cmd = new SQLiteCommand(insertHashQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@hashKod", hashKod);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+
                     Console.WriteLine(e.Message);
                     ok = false;
                 }
