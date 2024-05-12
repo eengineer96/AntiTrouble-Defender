@@ -7,6 +7,7 @@ using System.Data;
 using System.IO;
 using System.Data.SQLite;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace AntiTrouble_Defender
 {
@@ -47,8 +48,8 @@ namespace AntiTrouble_Defender
                 }
             }
         }
-
-        public bool Registration(int id, string Username, string Password)
+        //Regisztracio
+        public bool Registration(string Username, string Password)
         {
             bool ok = true;
             using(SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -56,10 +57,9 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string registrationQuery = " INSERT INTO `UserSettings` (`UserID`, `Username`, `Password`) VALUES (NULL, @Name, @Pass)";
+                    string registrationQuery = "INSERT INTO `UserSettings` (`UserID`, `Username`, `Password`) VALUES (NULL, @Name, @Pass)";
                     using(SQLiteCommand cmd = new SQLiteCommand(registrationQuery, connection))
                     {
-                        cmd.Parameters.AddWithValue("@id", id );
                         cmd.Parameters.AddWithValue("@Name", Username);
                         cmd.Parameters.AddWithValue("@Pass", Password);
 
@@ -75,6 +75,38 @@ namespace AntiTrouble_Defender
                 finally 
                 { 
                     CloseConnection(connection); 
+                }
+                return ok;
+            }
+        }
+
+        //virus-e
+        public bool IsVirus(string hashKod)
+        {
+            bool ok = true;
+            using(SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string isVirusQuery = "SELECT CASE WHEN COUNT(*) > 0 THEN 'Vírus' ELSE 'Nem vírus' END " +
+                                          "FROM Virus_Definitions WHERE Signature = @hashKod;";
+                    using(SQLiteCommand cmd = new SQLiteCommand(isVirusQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@hashKod", hashKod);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                catch (Exception e) 
+                {
+                    Console.WriteLine(e.Message);
+                    ok = false;
+                }
+                finally
+                {
+                    CloseConnection(connection);
                 }
                 return ok;
             }
