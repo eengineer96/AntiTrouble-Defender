@@ -13,7 +13,8 @@ namespace AntiTrouble_Defender
 {
     public class DefenderDatabase
     {
-        private static readonly string connectionString = "Server=127.0.0.1;Database=Defender; User ID=root;Password=;";
+        private static readonly string connectionString = @"Data Source= Defender.db; Version=3; New= False;Compress= True";
+        //private static readonly string connectionString = "Server=127.0.0.1;Database=Defender; User ID=root;Password=;";
 
         //Bejelentkezes
         public bool IsLogin(string username, string password)
@@ -32,7 +33,7 @@ namespace AntiTrouble_Defender
 
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                        return count > 0;
+                        return count == 1;
 
                     }
 
