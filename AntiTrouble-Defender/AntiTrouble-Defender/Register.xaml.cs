@@ -19,6 +19,7 @@ namespace AntiTrouble_Defender
     /// <summary>
     /// Interaction logic for Register.xaml
     /// </summary>
+    /// teszt branch
     public partial class Register : Window
     {
         public Register()
