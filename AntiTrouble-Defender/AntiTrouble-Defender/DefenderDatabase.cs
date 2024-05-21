@@ -142,7 +142,7 @@ namespace AntiTrouble_Defender
             }
         }*/
 
-        public bool InsertHashKod(string hashKod, string virusName)
+        public bool InsertHashKod(string hashKod, string virusName = "unknown", string virusType = "unknown")
         {
             bool ok = true;
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -150,12 +150,13 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string insertHashQuery = "INSERT INTO Virus_Definitions (Signature, VirusName) VALUES (@hashKod, @virusName)";
+                    string insertHashQuery = "INSERT INTO Virus_Definitions (VirusID, Signature, VirusName, VirusType) VALUES (NULL, @hashKod, @virusName, @virusType)";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(insertHashQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@hashKod", hashKod);
                         cmd.Parameters.AddWithValue("@virusName", virusName);
+                        cmd.Parameters.AddWithValue("@virusType", virusType);
                         cmd.ExecuteNonQuery();
                     }
                 }
