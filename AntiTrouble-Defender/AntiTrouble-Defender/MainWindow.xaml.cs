@@ -37,7 +37,6 @@ namespace AntiTrouble_Defender
 
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
-            bool virus = false;
             string mappa = MappaMegnyitas();
             if (mappa != "")
             {
@@ -51,7 +50,6 @@ namespace AntiTrouble_Defender
                     if (HashKodVizsgalat(hash) == true)
                     {
                         KarantenbaHelyezes(fajl, karantenUtvonal);
-                        virus = true;
                     }
                     System.Threading.Thread.Sleep(1000);
                 }
@@ -134,11 +132,13 @@ namespace AntiTrouble_Defender
                 KarantenbaHelyezes(fajl, karantenUtvonal);
                 if (HashKodMegjeloles(hash, fajl.Name))
                 {
-                    Lista.Items.Add("A fájl sikeresen megjelölve!");
+                    System.Windows.MessageBox.Show("A fájl sikeresen megjelölve!",
+                        "Sikeres megjelölés", MessageBoxButton.OK);
                 }
                 else
                 {
-                    Lista.Items.Add("Hiba történt a fájl adatbázisba írása során! Próbálja újra!");
+                    System.Windows.MessageBox.Show("Hiba történt a fájl adatbázisba írása során! Próbálja újra!",
+                        "Megjelölési hiba", MessageBoxButton.OK, MessageBoxImage.Error); 
                 }
 
             }
