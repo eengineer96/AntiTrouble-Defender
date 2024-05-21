@@ -33,7 +33,7 @@ namespace AntiTrouble_Defender
 
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                        return count > 0;
+                        return count == 1;
 
                     }
 
@@ -90,8 +90,7 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string isVirusQuery = "SELECT CASE WHEN COUNT(*) > 0 THEN 'Vírus' ELSE 'Nem vírus' END " +
-                                          "FROM Virus_Definitions WHERE Signature = @hashKod;";
+                    string isVirusQuery = "SELECT CASE WHEN COUNT(*) > 0 THEN 'Vírus' ELSE 'Nem vírus' END AS Eredmeny FROM Virus_Definitions WHERE Signature = @hashKod";
                     
                     using(SQLiteCommand cmd = new SQLiteCommand(isVirusQuery, connection))
                     {
