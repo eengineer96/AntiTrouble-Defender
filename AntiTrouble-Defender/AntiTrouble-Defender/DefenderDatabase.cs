@@ -84,6 +84,35 @@ namespace AntiTrouble_Defender
         //virus-e
         public bool IsVirus(string hashKod)
         {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string isVirusQuery = "SELECT COUNT(*) FROM Virus_Definitions WHERE Signature = @hashKod";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(isVirusQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@hashKod", hashKod);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        // Ha a count ==1, akkor a hash megtalálható a Virus_Definitions táblában
+                        return count ==1;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    return false;
+                }
+                finally
+                {
+                    CloseConnection(connection);
+                }
+            }
+        }
+        /*public bool IsVirus(string hashKod)
+        {
             bool ok = true;
             using(SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -110,7 +139,7 @@ namespace AntiTrouble_Defender
                 }
                 return ok;
             }
-        }
+        }*/
 
         /*public bool InsertHashKod(string hashKod)
         {
