@@ -37,6 +37,7 @@ namespace AntiTrouble_Defender
 
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
+            bool virus = false;
             string mappa = MappaMegnyitas();
             if (mappa != "")
             {
@@ -50,6 +51,7 @@ namespace AntiTrouble_Defender
                     if (HashKodVizsgalat(hash) == true)
                     {
                         KarantenbaHelyezes(fajl, karantenUtvonal);
+                        virus = true;
                     }
                     System.Threading.Thread.Sleep(1000);
                 }
@@ -87,8 +89,10 @@ namespace AntiTrouble_Defender
             DefenderDatabase db = new DefenderDatabase();
             if (db.IsVirus(hash))
             {
+                Lista.Items.Add("Vírus észlelve!");
                 return true;
             }
+            Lista.Items.Add("A fájl nem vírus!");
             return false;
         }
 
@@ -128,12 +132,25 @@ namespace AntiTrouble_Defender
                 Lista.Items.Add(fajl.Name);
                 string hash = HashKodGeneralas(fajl.FullName);
                 KarantenbaHelyezes(fajl, karantenUtvonal);
-                // TODO: Adatbázisba a megjelölt fájl hash kódjának felvétele
-                Lista.Items.Add("kész");
+                if (HashKodMegjeloles(hash))
+                {
+                    Lista.Items.Add("A fájl sikeresen megjelölve!");
+                }
+                else
+                {
+                    Lista.Items.Add("Hiba történt a fájl adatbázisba írása során! Próbálja újra!");
+                }
 
             }
         }
 
+
+        private bool HashKodMegjeloles(string hash)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            bool eredmeny = db.InsertHashKod(hash);
+            return eredmeny;
+        }
 
 
         private void Elozmenyek(object sender, RoutedEventArgs e)
