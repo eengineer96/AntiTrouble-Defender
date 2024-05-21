@@ -33,7 +33,7 @@ namespace AntiTrouble_Defender
 
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                        return count == 1;
+                        return count > 0;
 
                     }
 
