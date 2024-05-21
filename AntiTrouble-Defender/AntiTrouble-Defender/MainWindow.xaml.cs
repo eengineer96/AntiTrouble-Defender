@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Microsoft.Win32;
 using static AntiTrouble_Defender.Login;
+using static AntiTrouble_Defender.DefenderDatabase;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -46,9 +47,7 @@ namespace AntiTrouble_Defender
                 {
                     Lista.Items.Add(fajl.Name);
                     string hash = HashKodGeneralas(fajl.FullName);
-                    // TODO: Adatbázisból a vírusok hash kódjának lekérdezése
-                    // Ideiglenesen:
-                    if (fajl.Name.Contains(".txt"))
+                    if (HashKodVizsgalat(hash) == true)
                     {
                         KarantenbaHelyezes(fajl, karantenUtvonal);
                     }
@@ -80,6 +79,17 @@ namespace AntiTrouble_Defender
             byte[] hash = md5.ComputeHash(stream);
             stream.Close();
             return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+
+
+        private bool HashKodVizsgalat(string hash)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            if (db.IsVirus(hash))
+            {
+                return true;
+            }
+            return false;
         }
 
 
@@ -119,6 +129,8 @@ namespace AntiTrouble_Defender
                 string hash = HashKodGeneralas(fajl.FullName);
                 KarantenbaHelyezes(fajl, karantenUtvonal);
                 // TODO: Adatbázisba a megjelölt fájl hash kódjának felvétele
+                Lista.Items.Add("kész");
+
             }
         }
 
