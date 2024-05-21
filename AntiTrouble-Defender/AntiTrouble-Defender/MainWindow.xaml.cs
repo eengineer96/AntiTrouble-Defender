@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Microsoft.Win32;
 using static AntiTrouble_Defender.Login;
+using static AntiTrouble_Defender.DefenderDatabase;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -36,6 +37,7 @@ namespace AntiTrouble_Defender
 
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
+            bool virus = false;
             string mappa = MappaMegnyitas();
             if (mappa != "")
             {
@@ -46,11 +48,10 @@ namespace AntiTrouble_Defender
                 {
                     Lista.Items.Add(fajl.Name);
                     string hash = HashKodGeneralas(fajl.FullName);
-                    // TODO: Adatbázisból a vírusok hash kódjának lekérdezése
-                    // Ideiglenesen:
-                    if (fajl.Name.Contains(".txt"))
+                    if (HashKodVizsgalat(hash) == true)
                     {
                         KarantenbaHelyezes(fajl, karantenUtvonal);
+                        virus = true;
                     }
                     System.Threading.Thread.Sleep(1000);
                 }
@@ -80,6 +81,19 @@ namespace AntiTrouble_Defender
             byte[] hash = md5.ComputeHash(stream);
             stream.Close();
             return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+
+
+        private bool HashKodVizsgalat(string hash)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            if (db.IsVirus(hash))
+            {
+                Lista.Items.Add("Vírus észlelve!");
+                return true;
+            }
+            Lista.Items.Add("A fájl nem vírus!");
+            return false;
         }
 
 
@@ -118,10 +132,25 @@ namespace AntiTrouble_Defender
                 Lista.Items.Add(fajl.Name);
                 string hash = HashKodGeneralas(fajl.FullName);
                 KarantenbaHelyezes(fajl, karantenUtvonal);
-                // TODO: Adatbázisba a megjelölt fájl hash kódjának felvétele
+                if (HashKodMegjeloles(hash))
+                {
+                    Lista.Items.Add("A fájl sikeresen megjelölve!");
+                }
+                else
+                {
+                    Lista.Items.Add("Hiba történt a fájl adatbázisba írása során! Próbálja újra!");
+                }
+
             }
         }
 
+
+        private bool HashKodMegjeloles(string hash)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            bool eredmeny = db.InsertHashKod(hash);
+            return eredmeny;
+        }
 
 
         private void Elozmenyek(object sender, RoutedEventArgs e)
