@@ -24,8 +24,8 @@ namespace AntiTrouble_Defender
     {
         public Register()
         {
-            Egyeznek.Visibility= Visibility.Hidden;
             InitializeComponent();
+            Egyeznek.Visibility = Visibility.Hidden;
         }
 
         public class UserRegistrationData
