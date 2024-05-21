@@ -132,7 +132,7 @@ namespace AntiTrouble_Defender
                 Lista.Items.Add(fajl.Name);
                 string hash = HashKodGeneralas(fajl.FullName);
                 KarantenbaHelyezes(fajl, karantenUtvonal);
-                if (HashKodMegjeloles(hash))
+                if (HashKodMegjeloles(hash, fajl.Name))
                 {
                     Lista.Items.Add("A fájl sikeresen megjelölve!");
                 }
@@ -145,10 +145,10 @@ namespace AntiTrouble_Defender
         }
 
 
-        private bool HashKodMegjeloles(string hash)
+        private bool HashKodMegjeloles(string hash, string fajlnev)
         {
             DefenderDatabase db = new DefenderDatabase();
-            bool eredmeny = db.InsertHashKod(hash);
+            bool eredmeny = db.InsertHashKod(hash, fajlnev);
             return eredmeny;
         }
 
