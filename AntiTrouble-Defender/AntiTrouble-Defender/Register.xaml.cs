@@ -34,10 +34,11 @@ namespace AntiTrouble_Defender
             public string password { get; set; }
         }
 
-        public async void Button_Regisztracio(object sender, RoutedEventArgs e)
+        public void Button_Regisztracio(object sender, RoutedEventArgs e)
         {
             string userName = Felhasznalonev.Text;
             string password = Jelszo.Password;
+            DefenderDatabase DB = new DefenderDatabase();
 
             if (Jelszo.Password != JelszoUjra.Password)
             {
@@ -45,7 +46,7 @@ namespace AntiTrouble_Defender
             }
             else
             {
-                bool success = await RegisterUser(userName, password);
+                bool success = DB.Registration(userName,password);
 
                 if (success)
                 {
@@ -53,6 +54,11 @@ namespace AntiTrouble_Defender
                     Felhasznalonev.Clear();
                     Jelszo.Clear();
                     JelszoUjra.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Érvénytelen regisztráció!",
+                            "Regisztrációs hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -75,41 +81,5 @@ namespace AntiTrouble_Defender
                 Egyeznek.Visibility = Visibility.Hidden;
             }
         }
-        public async Task<bool> RegisterUser(string userName, string password)
-        {
-            string apiUrl = "http://localhost/API/registration.php";
-
-            UserRegistrationData registrationData = new UserRegistrationData();
-            registrationData.userName = userName;
-            registrationData.password = password;
-
-            using (HttpClient client = new HttpClient())
-            {
-                string jsonData = JsonConvert.SerializeObject(registrationData);
-                StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync(apiUrl, content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    dynamic result = JsonConvert.DeserializeObject(responseContent);
-
-                    if (result.error == 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show(result.message.ToString());
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("An error occurred while registering the user.");
-                    return false;
-                }
-            }
-        }
-    }
+     }
 }
