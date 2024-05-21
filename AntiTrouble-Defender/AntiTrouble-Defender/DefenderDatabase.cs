@@ -90,8 +90,7 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string isVirusQuery = "SELECT CASE WHEN COUNT(*) > 0 THEN 'Vírus' ELSE 'Nem vírus' END " +
-                                          "FROM Virus_Definitions WHERE Signature = @hashKod;";
+                    string isVirusQuery = "SELECT CASE WHEN COUNT(*) > 0 THEN 'Vírus' ELSE 'Nem vírus' END AS Eredmeny FROM Virus_Definitions WHERE Signature = @hashKod";
                     
                     using(SQLiteCommand cmd = new SQLiteCommand(isVirusQuery, connection))
                     {
@@ -113,7 +112,7 @@ namespace AntiTrouble_Defender
             }
         }
 
-        public bool InsertHashKod(string hashKod)
+        /*public bool InsertHashKod(string hashKod)
         {
             bool ok = true;
             using (SQLiteConnection connection = new SQLiteConnection(connectionString)) 
@@ -141,7 +140,38 @@ namespace AntiTrouble_Defender
                 }
                 return ok;
             }
+        }*/
+
+        public bool InsertHashKod(string hashKod, string virusName)
+        {
+            bool ok = true;
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string insertHashQuery = "INSERT INTO Virus_Definitions (Signature, VirusName) VALUES (@hashKod, @virusName)";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertHashQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@hashKod", hashKod);
+                        cmd.Parameters.AddWithValue("@virusName", virusName);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    ok = false;
+                }
+                finally
+                {
+                    CloseConnection(connection);
+                }
+                return ok;
+            }
         }
+
         //Kommunikacio zaras
         private void CloseConnection(SQLiteConnection connection)
         {
