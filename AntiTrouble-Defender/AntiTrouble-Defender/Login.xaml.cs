@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static AntiTrouble_Defender.DefenderDatabase;
 
 namespace AntiTrouble_Defender
 {
@@ -40,7 +41,7 @@ namespace AntiTrouble_Defender
                                 "a felhasználónevét és a jelszavát!",
                             "Bejelentkezési hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (!FelhasznaloLetezik())
+            else if (!FelhasznaloLetezik(Felhasznalonev.Text, Jelszo.Password))
             {
                 MessageBox.Show("Érvénytelen adatok!\nA megadott felhasználó " +
                                 "nem szerepel a rendszer adatbázisában!",
@@ -74,10 +75,15 @@ namespace AntiTrouble_Defender
             return true;
         }
 
-        private bool FelhasznaloLetezik()
+        private bool FelhasznaloLetezik(string felhasznalonev, string jelszo)
         {
-            // TODO: Adatbázissal kommunikáló függvények hívása
-            // Ideiglenesen:
+            /*DefenderDatabase db = new DefenderDatabase();
+            if (db.IsLogin(felhasznalonev, jelszo))
+            {
+                return true;
+            }
+            return false;
+            */
             return true;
         }
 
