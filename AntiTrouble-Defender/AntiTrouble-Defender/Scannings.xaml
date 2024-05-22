@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Scannings" Height="600" Width="500" ResizeMode="NoResize">
     <Grid Background="#FFD2EFF9" >
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,50,50,0" Background="#FFA3D6FD" Height="450" VerticalAlignment="Top"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,50,50,0" Background="#FFA3D6FD" Height="450" VerticalAlignment="Top" x:Name="ListBox"/>
         <Button Content="Vissza" Margin="0,0,50,20" RenderTransformOrigin="-0.648,-0.338" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Click="Button_Vissza" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" />
         <Label Content="Korábbi vizsgálatok:" HorizontalAlignment="Left" Margin="50,21,0,0" FontSize="14" FontWeight="Bold" Foreground="#FF01A4EA" VerticalAlignment="Top"/>
     </Grid>

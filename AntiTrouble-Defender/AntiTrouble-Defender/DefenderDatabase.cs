@@ -142,7 +142,41 @@ namespace AntiTrouble_Defender
                 return ok;
             }
         }
+        public List<string> GetLogEntries()
+        {
+            List<string> logEntries = new List<string>();
 
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT LogID, UserID, ScanDate, InfectedFiles, CleanedFiles, ScanResult FROM ScanLogs";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string logEntry = $"{reader["LogID"]}\t{reader["UserID"]}\t{reader["ScanDate"]}\t{reader["InfectedFiles"]}\t{reader["CleanedFiles"]}\t{reader["ScanResult"]}";
+                                logEntries.Add(logEntry);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    CloseConnection(connection);
+                }
+            }
+
+            return logEntries;
+        }
         //Kommunikacio zaras
         private void CloseConnection(SQLiteConnection connection)
         {

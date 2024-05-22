@@ -21,11 +21,19 @@ namespace AntiTrouble_Defender
     {
         public Scannings()
         {
+            DefenderDatabase DB = new DefenderDatabase();
             InitializeComponent();
+            List<string> ScanList = DB.GetLogEntries();
+            foreach (string item in ScanList)
+            {
+                ListBox.Items.Add(item);
+            }
         }
         private void Button_Vissza(object sender, RoutedEventArgs e)
         {
-
+            MainWindow newWindow = new MainWindow(new Login.Felhasznalo());
+            newWindow.Show();
+            Close();
         }
     }
 }
