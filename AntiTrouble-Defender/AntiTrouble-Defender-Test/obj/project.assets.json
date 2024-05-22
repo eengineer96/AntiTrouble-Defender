@@ -6129,26 +6129,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\varga\\.nuget\\packages\\": {},
-    "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages": {},
+    "C:\\Users\\lszlp\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\varga\\Source\\Repos\\AntiTrouble-Defenderx\\AntiTrouble-Defender\\AntiTrouble-Defender-Test\\AntiTrouble-Defender-Test.csproj",
+      "projectUniqueName": "C:\\Users\\lszlp\\Documents\\GitHub\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender-Test\\AntiTrouble-Defender-Test.csproj",
       "projectName": "AntiTrouble-Defender-Test",
-      "projectPath": "C:\\Users\\varga\\Source\\Repos\\AntiTrouble-Defenderx\\AntiTrouble-Defender\\AntiTrouble-Defender-Test\\AntiTrouble-Defender-Test.csproj",
-      "packagesPath": "C:\\Users\\varga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\varga\\Source\\Repos\\AntiTrouble-Defenderx\\AntiTrouble-Defender\\AntiTrouble-Defender-Test\\obj\\",
+      "projectPath": "C:\\Users\\lszlp\\Documents\\GitHub\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender-Test\\AntiTrouble-Defender-Test.csproj",
+      "packagesPath": "C:\\Users\\lszlp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lszlp\\Documents\\GitHub\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender-Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\varga\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
+        "C:\\Users\\lszlp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6157,15 +6154,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\varga\\Source\\Repos\\AntiTrouble-Defenderx\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender.csproj": {
-              "projectPath": "C:\\Users\\varga\\Source\\Repos\\AntiTrouble-Defenderx\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender.csproj"
+            "C:\\Users\\lszlp\\Documents\\GitHub\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender.csproj": {
+              "projectPath": "C:\\Users\\lszlp\\Documents\\GitHub\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender\\AntiTrouble-Defender.csproj"
             }
           }
         }
@@ -6217,7 +6213,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
