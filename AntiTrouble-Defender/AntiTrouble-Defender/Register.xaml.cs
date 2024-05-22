@@ -25,7 +25,6 @@ namespace AntiTrouble_Defender
         public Register()
         {
             InitializeComponent();
-            Egyeznek.Visibility = Visibility.Hidden;
         }
 
         public class UserRegistrationData
@@ -81,5 +80,21 @@ namespace AntiTrouble_Defender
                 Egyeznek.Visibility = Visibility.Hidden;
             }
         }
+
+
+        //Testing
+        internal Visibility getVisibility()
+        {
+            return Egyeznek.Visibility;
+        }
+        internal PasswordBox getJelszo()
+        {
+            return Jelszo;
+        }
+        internal PasswordBox getJelszoUjra()
+        {
+            return JelszoUjra;
+        }
+
      }
 }

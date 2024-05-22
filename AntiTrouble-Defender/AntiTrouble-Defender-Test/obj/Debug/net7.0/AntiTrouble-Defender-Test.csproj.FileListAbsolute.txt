@@ -1,0 +1,6 @@
+C:\Users\lszlp\Documents\GitHub\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender-Test\obj\Debug\net7.0\AntiTrouble-Defender-Test.csproj.AssemblyReference.cache
+C:\Users\lszlp\Documents\GitHub\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender-Test\obj\Debug\net7.0\AntiTrouble-Defender-Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lszlp\Documents\GitHub\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender-Test\obj\Debug\net7.0\AntiTrouble-Defender-Test.AssemblyInfoInputs.cache
+C:\Users\lszlp\Documents\GitHub\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender-Test\obj\Debug\net7.0\AntiTrouble-Defender-Test.AssemblyInfo.cs
+C:\Users\lszlp\Documents\GitHub\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender-Test\obj\Debug\net7.0\AntiTrouble-Defender-Test.csproj.CoreCompileInputs.cache
+C:\Users\lszlp\Documents\GitHub\AntiTrouble-Defender\AntiTrouble-Defender\AntiTrouble-Defender-Test\obj\Debug\net7.0\AntiTrouble-Defender-Test.sourcelink.json
