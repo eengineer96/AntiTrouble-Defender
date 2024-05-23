@@ -58,7 +58,7 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string registrationQuery = "INSERT INTO UserSettings (`Username`, `Password`) VALUES (@Name, @Pass)";
+                    string registrationQuery = "INSERT INTO `UserSettings` (`ScanPath`, `Username`, `Password`) VALUES ('', @Name, @Pass)";
                     using(SQLiteCommand cmd = new SQLiteCommand(registrationQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@Name", Username);

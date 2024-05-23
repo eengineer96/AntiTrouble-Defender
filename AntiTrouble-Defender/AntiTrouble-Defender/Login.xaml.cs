@@ -33,7 +33,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        private void Bejelentkezes(object sender, RoutedEventArgs e)
+        internal void Bejelentkezes(object sender, RoutedEventArgs e)
         {
             if (!MezokKitoltve())
             {
@@ -83,9 +83,29 @@ namespace AntiTrouble_Defender
                 return true;
             }
             return false;
-            
-            //return true;
         }
 
+
+        // Ellenőrző metódus a unit teszthez
+        internal TextBox getFelhasznalonev()
+        {
+            return Felhasznalonev;
+        }
+        internal PasswordBox getJelszo()
+        {
+            return Jelszo;
+        }
+        internal Button getBejelentkezes()
+        {
+            return Bejelentkezes_Gomb;
+        }
+        internal Button getRegisztracio()
+        {
+            return Regisztracio_Gomb;
+        }
+        internal static bool IsWindowOpen<W>() where W : Window
+        {
+            return Application.Current.Windows.OfType<W>().Any();
+        }
     }
 }
