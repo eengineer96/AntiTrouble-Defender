@@ -32,7 +32,7 @@ namespace AntiTrouble_Defender
                         cmd.Parameters.AddWithValue("@Pass", password);
 
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-
+                        Console.WriteLine(count);
                         return count == 1;
 
                     }
@@ -63,6 +63,7 @@ namespace AntiTrouble_Defender
                     {
                         cmd.Parameters.AddWithValue("@Name", Username);
                         cmd.Parameters.AddWithValue("@Pass", Password);
+                        Console.WriteLine(registrationQuery);
 
                         cmd.ExecuteNonQuery();
                     }
