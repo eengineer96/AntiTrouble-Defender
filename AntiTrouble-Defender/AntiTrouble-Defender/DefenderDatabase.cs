@@ -143,6 +143,39 @@ namespace AntiTrouble_Defender
                 return ok;
             }
         }
+
+        public bool InsertLogEntries(int UserID, DateTime ScanDate, int InfectedFiles, int CleanedFiles)
+        {
+            bool ok = true;
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string insertLogQuery = "INSERT INTO ScanLogs (UserID, ScanDate, InfectedFiles, CleanedFiles) VALUES (@UserID, @ScanDate, @InfectedFiles, @CleanedFiles)";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertLogQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", 1);
+                        cmd.Parameters.AddWithValue("@ScanDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@InfectedFiles", InfectedFiles);
+                        cmd.Parameters.AddWithValue("@CleanedFiles", CleanedFiles);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    ok = false;
+                }
+                finally
+                {
+                    CloseConnection(connection);
+                }
+                return ok;
+            }
+        }
+
         public List<string> GetLogEntries()
         {
             List<string> logEntries = new List<string>();
