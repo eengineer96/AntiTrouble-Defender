@@ -16,6 +16,7 @@ namespace AntiTrouble_Defender
         private static readonly string connectionString = @"Data Source= Defender.db; Version=3; New= False;Compress= True";
         //private static readonly string connectionString = "Server=127.0.0.1;Database=Defender; User ID=root;Password=;";
 
+
         //Bejelentkezes
         public bool IsLogin(string username, string password)
         {
@@ -49,6 +50,7 @@ namespace AntiTrouble_Defender
                 }
             }
         }
+
         //Regisztracio
         public bool Registration(string Username, string Password)
         {
@@ -82,6 +84,37 @@ namespace AntiTrouble_Defender
             }
         }
 
+        // UserID lekérdezése
+        public int GetUserID(string username)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string getUserIDQuery = "SELECT UserID FROM UserSettings WHERE WHERE Username = @Name";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(getUserIDQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", username);
+                        int id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        return id;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    return -1;
+                }
+                finally
+                {
+                    CloseConnection(connection);
+                }
+            }
+        }
+
+
         //virus-e
         public bool IsVirus(string hashKod)
         {
@@ -113,6 +146,7 @@ namespace AntiTrouble_Defender
             }
         }
 
+        // Vírus beszúrása az adatbázisba
         public bool InsertHashKod(string hashKod, string virusName = "unknown", string virusType = "unknown")
         {
             bool ok = true;
@@ -144,6 +178,7 @@ namespace AntiTrouble_Defender
             }
         }
 
+        // Log bejegyzés beszúrása az adatbázisba
         public bool InsertLogEntries(int UserID, DateTime ScanDate, int InfectedFiles, int CleanedFiles)
         {
             bool ok = true;
@@ -176,6 +211,7 @@ namespace AntiTrouble_Defender
             }
         }
 
+        // Log bejegyzések kiolvasása
         public List<string> GetLogEntries()
         {
             List<string> logEntries = new List<string>();
@@ -211,6 +247,7 @@ namespace AntiTrouble_Defender
 
             return logEntries;
         }
+
         //Kommunikacio zaras
         private void CloseConnection(SQLiteConnection connection)
         {
