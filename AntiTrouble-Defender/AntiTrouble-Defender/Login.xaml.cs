@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static AntiTrouble_Defender.DefenderDatabase;
+using static AntiTrouble_Defender.Login;
 
 namespace AntiTrouble_Defender
 {
@@ -62,8 +63,13 @@ namespace AntiTrouble_Defender
 
         private void RegisztracioAblak(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show((Application.Current == null).ToString(),
+"Sikeres bejelentkezés", MessageBoxButton.OK);
             Register regisztracio = new Register();
             regisztracio.Show();
+            MessageBox.Show((Application.Current == null).ToString(),
+"Sikeres bejelentkezés", MessageBoxButton.OK);
+
         }
 
         private bool MezokKitoltve()

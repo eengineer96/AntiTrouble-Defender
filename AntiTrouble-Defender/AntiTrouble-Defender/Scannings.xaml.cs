@@ -31,8 +31,6 @@ namespace AntiTrouble_Defender
         }
         private void Button_Vissza(object sender, RoutedEventArgs e)
         {
-            MainWindow newWindow = new MainWindow(new Login.Felhasznalo());
-            newWindow.Show();
             Close();
         }
     }
