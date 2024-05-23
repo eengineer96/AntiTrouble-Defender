@@ -77,14 +77,14 @@ namespace AntiTrouble_Defender
 
         private bool FelhasznaloLetezik(string felhasznalonev, string jelszo)
         {
-            /*DefenderDatabase db = new DefenderDatabase();
+            DefenderDatabase db = new DefenderDatabase();
             if (db.IsLogin(felhasznalonev, jelszo))
             {
                 return true;
             }
             return false;
-            */
-            return true;
+            
+            //return true;
         }
 
     }

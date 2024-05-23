@@ -32,7 +32,7 @@ namespace AntiTrouble_Defender
                         cmd.Parameters.AddWithValue("@Pass", password);
 
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-
+                        Console.WriteLine(count);
                         return count == 1;
 
                     }
@@ -58,11 +58,12 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string registrationQuery = "INSERT INTO `UserSettings` (`UserID`, `Username`, `Password`) VALUES (NULL, @Name, @Pass)";
+                    string registrationQuery = "INSERT INTO UserSettings (`Username`, `Password`) VALUES (@Name, @Pass)";
                     using(SQLiteCommand cmd = new SQLiteCommand(registrationQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@Name", Username);
                         cmd.Parameters.AddWithValue("@Pass", Password);
+                        Console.WriteLine(registrationQuery);
 
                         cmd.ExecuteNonQuery();
                     }
