@@ -17,6 +17,8 @@ using static AntiTrouble_Defender.Login;
 using static AntiTrouble_Defender.DefenderDatabase;
 using System.IO;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace AntiTrouble_Defender
 {
@@ -37,6 +39,8 @@ namespace AntiTrouble_Defender
 
         private void Vizsgalat(object sender, RoutedEventArgs e)
         {
+            int tisztaFajlok = 0;
+            int fertozottFajlok = 0;
             string mappa = MappaMegnyitas();
             if (mappa != "")
             {
@@ -50,10 +54,16 @@ namespace AntiTrouble_Defender
                     if (HashKodVizsgalat(hash) == true)
                     {
                         KarantenbaHelyezes(fajl, karantenUtvonal);
+                        fertozottFajlok += 1;
+                    }
+                    else
+                    {
+                        tisztaFajlok += 1;
                     }
                     System.Threading.Thread.Sleep(1000);
                 }
-            }         
+                Logbejegyzes(felhasznalo.Felhasznalonev, fertozottFajlok, tisztaFajlok);
+            }
         }
 
 
@@ -117,7 +127,6 @@ namespace AntiTrouble_Defender
         }
 
 
-
         private void Megjeloles(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog ablak = new System.Windows.Forms.OpenFileDialog();
@@ -132,6 +141,7 @@ namespace AntiTrouble_Defender
                 KarantenbaHelyezes(fajl, karantenUtvonal);
                 if (HashKodMegjeloles(hash, fajl.Name))
                 {
+                    Logbejegyzes(felhasznalo.Felhasznalonev, 1, 0);
                     System.Windows.MessageBox.Show("A fájl sikeresen megjelölve!",
                         "Sikeres megjelölés", MessageBoxButton.OK);
                 }
@@ -149,6 +159,14 @@ namespace AntiTrouble_Defender
         {
             DefenderDatabase db = new DefenderDatabase();
             bool eredmeny = db.InsertHashKod(hash, fajlnev);
+            return eredmeny;
+        }
+
+
+        private bool Logbejegyzes(string felhasznalo, int fertozottFajlok, int tisztaFajlok)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            bool eredmeny = db.InsertLogEntries(felhasznalo, fertozottFajlok, tisztaFajlok);
             return eredmeny;
         }
 
