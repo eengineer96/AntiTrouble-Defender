@@ -13,8 +13,11 @@ namespace AntiTrouble_Defender_Test
     public class LoginWindowTest
     {
         Login login = new Login();
+        Register register = new Register();
+        MainWindow main;
 
         [WpfTheory]
+        //[InlineData("username", "pass", false)]
         [InlineData("Szilveszter", "Antiv1rus", true)]
         public void Login_test(string username, string password, bool expected)
         {

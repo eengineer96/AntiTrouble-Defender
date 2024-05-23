@@ -64,8 +64,6 @@ namespace AntiTrouble_Defender
 
         public void Button_Vissza(object sender, RoutedEventArgs e)
         {
-            Login newWindow = new Login();
-            newWindow.Show();
             Close();
         }
 
