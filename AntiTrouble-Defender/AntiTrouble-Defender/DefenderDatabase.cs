@@ -92,7 +92,7 @@ namespace AntiTrouble_Defender
                 try
                 {
                     connection.Open();
-                    string getUserIDQuery = "SELECT UserID FROM UserSettings WHERE WHERE Username = @Name";
+                    string getUserIDQuery = "SELECT UserID FROM UserSettings WHERE Username = @Name";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(getUserIDQuery, connection))
                     {
@@ -179,7 +179,7 @@ namespace AntiTrouble_Defender
         }
 
         // Log bejegyzés beszúrása az adatbázisba
-        public bool InsertLogEntries(int UserID, DateTime ScanDate, int InfectedFiles, int CleanedFiles)
+        public bool InsertLogEntries(string Username, int InfectedFiles, int CleanedFiles)
         {
             bool ok = true;
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -191,7 +191,7 @@ namespace AntiTrouble_Defender
 
                     using (SQLiteCommand cmd = new SQLiteCommand(insertLogQuery, connection))
                     {
-                        cmd.Parameters.AddWithValue("@UserID", 1);
+                        cmd.Parameters.AddWithValue("@UserID", GetUserID(Username));
                         cmd.Parameters.AddWithValue("@ScanDate", DateTime.Now);
                         cmd.Parameters.AddWithValue("@InfectedFiles", InfectedFiles);
                         cmd.Parameters.AddWithValue("@CleanedFiles", CleanedFiles);
