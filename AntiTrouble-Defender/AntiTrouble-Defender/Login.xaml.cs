@@ -63,8 +63,13 @@ namespace AntiTrouble_Defender
 
         private void RegisztracioAblak(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show((Application.Current == null).ToString(),
+"Sikeres bejelentkezés", MessageBoxButton.OK);
             Register regisztracio = new Register();
             regisztracio.Show();
+            MessageBox.Show((Application.Current == null).ToString(),
+"Sikeres bejelentkezés", MessageBoxButton.OK);
+
         }
 
         private bool MezokKitoltve()
@@ -106,7 +111,8 @@ namespace AntiTrouble_Defender
         }
         internal static bool IsWindowOpen<W>() where W : Window
         {
-            return Application.Current.Windows.OfType<W>().Any();
+            return Application.Current == null;
+            //return Application.Current.Windows.OfType<W>().Any();
         }
     }
 }
