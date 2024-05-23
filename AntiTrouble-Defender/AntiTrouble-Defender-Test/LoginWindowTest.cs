@@ -28,5 +28,20 @@ namespace AntiTrouble_Defender_Test
             bool result = Login.IsWindowOpen<MainWindow>();
             Assert.Equal(result, expected);
         }
+
+
+        [WpfTheory]
+        [InlineData(false, false)]
+        [InlineData(true, true)]
+        public void RegisterButton_test(bool click, bool expected)
+        {
+            Button regisztracio = login.getRegisztracio();
+            if (click)
+            {
+                regisztracio.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+            }
+            bool result = Login.IsWindowOpen<MainWindow>();
+            Assert.Equal(result, expected);
+        }
     }
 }

@@ -99,6 +99,10 @@ namespace AntiTrouble_Defender
         {
             return Bejelentkezes_Gomb;
         }
+        internal Button getRegisztracio()
+        {
+            return Regisztracio_Gomb;
+        }
         internal static bool IsWindowOpen<W>() where W : Window
         {
             return Application.Current.Windows.OfType<W>().Any();
