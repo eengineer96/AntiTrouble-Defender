@@ -77,15 +77,19 @@ namespace AntiTrouble_Defender
 
         private bool FelhasznaloLetezik(string felhasznalonev, string jelszo)
         {
-            /*DefenderDatabase db = new DefenderDatabase();
+            DefenderDatabase db = new DefenderDatabase();
             if (db.IsLogin(felhasznalonev, jelszo))
             {
                 return true;
             }
             return false;
-            */
-            return true;
         }
 
+
+        // Ellenőrző metódus a unit teszthez
+        public static bool IsWindowOpen<W>() where W : Window
+        {
+            return Application.Current.Windows.OfType<W>().Any();
+        }
     }
 }
