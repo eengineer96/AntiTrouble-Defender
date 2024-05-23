@@ -12,7 +12,7 @@
         <Label Content="Jelentkezz be a folytatáshoz!" HorizontalAlignment="Left" Margin="120,10,0,0" Height="26" VerticalAlignment="Top"/>
         <Label Content="Felhasználónév:" HorizontalAlignment="Left" Margin="84,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,-0.941"/>
         <Label Content="Jelszó:" HorizontalAlignment="Left" Margin="84,75,0,0" VerticalAlignment="Top"/>
-        <Button Content="Bejelentkezés" Margin="0,120,60,0" Width="100" Click="Bejelentkezes" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" HorizontalAlignment="Right" Height="23" VerticalAlignment="Top"/>
+        <Button x:Name="Bejelentkezes_Gomb" Content="Bejelentkezés" Margin="0,120,60,0" Width="100" Click="Bejelentkezes" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" HorizontalAlignment="Right" Height="23" VerticalAlignment="Top"/>
         <Button Content="Regisztráció" HorizontalAlignment="Left" Width="100" Margin="60,120,0,0" Click="RegisztracioAblak" FontSize="14" FontWeight="Bold" Background="#FF01A4EA" Foreground="White" Height="23" VerticalAlignment="Top"/>
     </Grid>
 </Window>
