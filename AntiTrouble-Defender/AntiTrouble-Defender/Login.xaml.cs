@@ -111,8 +111,7 @@ namespace AntiTrouble_Defender
         }
         internal static bool IsWindowOpen<W>() where W : Window
         {
-            return Application.Current == null;
-            //return Application.Current.Windows.OfType<W>().Any();
+            return Application.Current.Windows.OfType<W>().Any();
         }
     }
 }

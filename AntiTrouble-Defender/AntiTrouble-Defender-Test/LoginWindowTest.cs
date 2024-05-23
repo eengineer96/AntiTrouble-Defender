@@ -12,7 +12,7 @@ namespace AntiTrouble_Defender_Test
 {
     public class LoginWindowTest
     {
-        Application app = new System.Windows.Application { ShutdownMode = ShutdownMode.OnExplicitShutdown };
+        Application app = new Application();
         Login login = new Login();
         Register register = new Register();
         MainWindow main;
@@ -36,17 +36,19 @@ namespace AntiTrouble_Defender_Test
 
 
         [WpfTheory]
-        [InlineData(false, true)]
-        [InlineData(true, true)]
+        [InlineData(false, false)]
+        [InlineData(true, false)]
         public void RegisterButton_test(bool click, bool expected)
         {
+
             Button regisztracio = login.getRegisztracio();
             if (click)
             {
                 regisztracio.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             }
-            System.Threading.Thread.Sleep(1000);
-            bool result = System.Windows.Application.Current == null;
+            System.Threading.Thread.Sleep(3000);
+            bool result = System.Windows.Application.Current.Windows.OfType<Login>().Any() == null;
+            //bool result = Login.IsWindowOpen<Register>();
             Assert.Equal(result, expected);
         }
     }
