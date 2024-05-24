@@ -33,5 +33,88 @@ namespace AntiTrouble_Defender_Test
                 }
             }
         }
+        [WpfFact]
+        public void HashKodMegjeloles_InsertionSucceeded_ReturnsTrue()
+        {
+            Felhasznalo tesztFelhasznalo = new Felhasznalo
+            {
+                Felhasznalonev = "mand",
+                Jelszo = "mand"
+            };
+            MainWindow mainWindow = new MainWindow(tesztFelhasznalo);
+            var defenderDatabase = new DefenderDatabase();
+            string hash = "some_hash";
+            string fileName = "some_file_name";
+
+            // Act
+            bool result = mainWindow.HashKodMegjeloles(hash, fileName);
+
+            // Assert
+            Assert.True(result);
+            Assert.True(defenderDatabase.InsertHashKod(hash, fileName));
+        }
+
+        [WpfFact]
+        public void HashKodMegjeloles_InsertionFailed_ReturnsFalse()
+        {
+            Felhasznalo tesztFelhasznalo = new Felhasznalo
+            {
+                Felhasznalonev = "mand",
+                Jelszo = "mand"
+            };
+            MainWindow mainWindow = new MainWindow(tesztFelhasznalo);
+            var defenderDatabase = new DefenderDatabase();
+            string hash = "some_hash";
+            string fileName = "some_file_name";
+
+            // Act
+            bool result = mainWindow.HashKodMegjeloles(hash, fileName);
+
+            // Assert
+            Assert.False(result);
+            Assert.False(defenderDatabase.InsertHashKod(hash, fileName));
+        }
+
+        [WpfFact]
+        public void Logbejegyzes_InsertionSucceeded_ReturnsTrue()
+        {
+            Felhasznalo tesztFelhasznalo = new Felhasznalo
+            {
+                Felhasznalonev = "mand",
+                Jelszo = "mand"
+            };
+            MainWindow mainWindow = new MainWindow(tesztFelhasznalo);
+            DefenderDatabase defenderDatabase = new DefenderDatabase();
+            int infectedFiles = 10;
+            int cleanedFiles = 5;
+
+            // Act
+            bool result = mainWindow.Logbejegyzes(tesztFelhasznalo.Felhasznalonev, infectedFiles, cleanedFiles);
+
+            // Assert
+            Assert.True(result);
+            Assert.True(defenderDatabase.InsertLogEntries(tesztFelhasznalo.Felhasznalonev, infectedFiles, cleanedFiles));
+        }
+
+        [WpfFact]
+        public void Logbejegyzes_InsertionFailed_ReturnsFalse()
+        {
+            Felhasznalo tesztFelhasznalo = new Felhasznalo
+            {
+                Felhasznalonev = "mand",
+                Jelszo = "mand"
+            };
+            MainWindow mainWindow = new MainWindow(tesztFelhasznalo);
+            var defenderDatabase = new DefenderDatabase();
+            int infectedFiles = 10;
+            int cleanedFiles = 5;
+
+            // Act
+            bool result = mainWindow.Logbejegyzes(tesztFelhasznalo.Felhasznalonev, infectedFiles, cleanedFiles);
+
+            // Assert
+            Assert.False(result);
+            Assert.False(defenderDatabase.InsertLogEntries(tesztFelhasznalo.Felhasznalonev, infectedFiles, cleanedFiles));
+        }
     }
 }
