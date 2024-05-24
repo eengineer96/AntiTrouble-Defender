@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AntiTrouble-Defender-Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+033d92b5e7fae86c78909c5855a92cac02d9033e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AntiTrouble-Defender-Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AntiTrouble-Defender-Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
