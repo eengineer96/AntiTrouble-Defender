@@ -11,15 +11,29 @@ namespace AntiTrouble_Defender_Test
 {
     public class DefenderDatabaseTest
     {
-        DefenderDatabase db = new DefenderDatabase();
 
         [WpfTheory]
-        [InlineData("Teszt Elek", 9)]
+        [InlineData("Ismeretlen", -1)]
         [InlineData("Szilveszter", 10)]
         public void GetUserID_test(string username, int expected)
         {
+            DefenderDatabase db = new DefenderDatabase();
             int result = db.GetUserID(username);
             Assert.Equal(result, expected);
         }
+
+
+        [WpfTheory]
+        [InlineData("Teszt Elek", 3, 5, true)]
+        public void InsertLogEntries_test(string username, int infected, int cleared, bool expected)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            bool result = db.InsertLogEntries(username, infected, cleared);
+            Assert.True(result);
+        }
+
+
+
+
     }
 }
