@@ -2,6 +2,8 @@
 
 **Tesztelés dátuma:** 2024. 05. 24.
 
+**Megjegyzések száma:** 2(Teszt #04, Teszt #05)
+
 Tesztszám | Teszteset | Várt eredmény | Eredmény | Megjegyzés
 ----------|--------------|---------------|----------|-----------
 Teszt #01 | Bejelentkezés hiányos adatokkal | Figyelmeztetést kap a felhasználó, felugró ablak formájában | Megjelenik a figyelmeztető ablak. | Nem találtam problémát.
