@@ -1,6 +1,6 @@
-**Tesztelő:** Csordás Szilveszter
+**Tesztelő:** Kállai Viktor
 
-**Tesztelés dátuma:** 2024. 05. 23.
+**Tesztelés dátuma:** 2024. 05. 24.
 
 Tesztszám | Teszteset | Várt eredmény | Eredmény | Megjegyzés
 ----------|--------------|---------------|----------|-----------
