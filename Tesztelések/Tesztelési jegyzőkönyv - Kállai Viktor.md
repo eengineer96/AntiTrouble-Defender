@@ -7,7 +7,7 @@ Tesztszám | Teszteset | Várt eredmény | Eredmény | Megjegyzés
 Teszt #01 | Bejelentkezés hiányos adatokkal | Figyelmeztetést kap a felhasználó, felugró ablak formájában | Megjelenik a figyelmeztető ablak. | Nem találtam problémát.
 Teszt #02 | Bejelentkezés hamis adatokkal | A felhasználót felugró ablak tájékoztatja, hogy a megadott adatokkal nincs felhasználó a nyilvántartásban. | Megjelenik a figyelmeztető ablak, nem tud bejelentkezni a felhasználó | Nem találtam problémát.
 Teszt #03 | Regisztráció különböző jelszavakkal | Nem történik meg a regisztráció. | Még nem kap a program 2 azonos jelszót, nincs regisztráció | Nem találtam problémát.
-Teszt #04 | Regisztráció már meglévő felhasználóval | Nem történik meg a regisztráció. | Lehetséges a regisztráció, már meglévő adatokkal  | Esedékes egy funkció, ami ellenőrzi, hogy van-e mr ilyen adattal regisztrált user
+Teszt #04 | Regisztráció már meglévő felhasználóval | Nem történik meg a regisztráció. | Lehetséges a regisztráció, már meglévő adatokkal  | Esedékes egy funkció, ami ellenőrzi, hogy van-e már ilyen adattal regisztrált user
 Teszt #05 | Regisztráció már meglévő felhasználóval, de más jelszóval | Nem történik meg a regisztráció. | "elfelejtette a jelszavát" funkció lép életbe, új jelszót kap ugyanazon felhasználó | 4. tesztben említett funkció megoldhatná a gondot
 Teszt #06 | Regisztráció megfelelő adatokkal | A felhasználó regisztrálásra kerül a megadott adatokkal. | Az új felhasználónév és jelszó regisztrálásra kerül az adatbázisban | Nem találtam problémát.
 Teszt #07 | Vissza gomb a regisztráció oldalon | A regisztrációs ablak bezáródik.| A regisztrációs ablak bezáródik. | Nem találtam problémát.
