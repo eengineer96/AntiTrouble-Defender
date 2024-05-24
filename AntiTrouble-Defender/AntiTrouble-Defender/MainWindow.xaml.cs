@@ -82,7 +82,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        private string HashKodGeneralas(string utvonal)
+        public string HashKodGeneralas(string utvonal)
         {
             MD5 md5 = MD5.Create();
             FileStream stream = File.OpenRead(utvonal);
