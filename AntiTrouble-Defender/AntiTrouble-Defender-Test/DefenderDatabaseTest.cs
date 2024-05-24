@@ -29,11 +29,18 @@ namespace AntiTrouble_Defender_Test
         {
             DefenderDatabase db = new DefenderDatabase();
             bool result = db.InsertLogEntries(username, infected, cleared);
-            Assert.True(result);
+            Assert.True(result == expected);
         }
 
 
-
+        [WpfTheory]
+        [InlineData(true)]
+        public void GetLogEntries_test(bool expected)
+        {
+            DefenderDatabase db = new DefenderDatabase();
+            List<string> logs = db.GetLogEntries();
+            Assert.True((logs != null) == expected);
+        }
 
     }
 }
