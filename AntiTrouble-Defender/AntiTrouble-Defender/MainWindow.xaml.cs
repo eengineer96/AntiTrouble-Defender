@@ -82,7 +82,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        private string HashKodGeneralas(string utvonal)
+        public string HashKodGeneralas(string utvonal)
         {
             MD5 md5 = MD5.Create();
             FileStream stream = File.OpenRead(utvonal);
@@ -155,7 +155,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        private bool HashKodMegjeloles(string hash, string fajlnev)
+        public bool HashKodMegjeloles(string hash, string fajlnev)
         {
             DefenderDatabase db = new DefenderDatabase();
             bool eredmeny = db.InsertHashKod(hash, fajlnev);
@@ -163,7 +163,7 @@ namespace AntiTrouble_Defender
         }
 
 
-        private bool Logbejegyzes(string felhasznalo, int fertozottFajlok, int tisztaFajlok)
+        public bool Logbejegyzes(string felhasznalo, int fertozottFajlok, int tisztaFajlok)
         {
             DefenderDatabase db = new DefenderDatabase();
             bool eredmeny = db.InsertLogEntries(felhasznalo, fertozottFajlok, tisztaFajlok);
