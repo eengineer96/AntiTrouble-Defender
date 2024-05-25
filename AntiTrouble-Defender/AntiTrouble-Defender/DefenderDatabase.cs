@@ -55,10 +55,6 @@ namespace AntiTrouble_Defender
         public bool Registration(string Username, string Password)
         {
             bool ok = true;
-            if (GetUserID(Username) != -1)
-            {
-                return false;
-            }
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 try
